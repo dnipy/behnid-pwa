@@ -1,0 +1,32 @@
+{
+    "theme_color" : "#fd6a04",
+    "background_color" : "#ffffff",
+    "display" : "standalone",
+    "scope" : "/",
+    "start_url" : "/",
+    "name" : "Behnid-Pwa",
+    "short_name" : "Behnid",
+    "description" : "اپلیکیشن به نید بازار عمده در دستان شما",
+    "icons": [
+        {
+            "src": "./192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "./384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "./512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

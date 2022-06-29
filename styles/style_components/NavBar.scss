@@ -1,0 +1,107 @@
+@import '../colors.scss';
+
+.Navbar{
+	width: 100%;
+	// height: 120px;
+	background-color: #ffffff !important;
+	border-bottom: 1px solid #ededed;
+	/* position: fixed; */
+	// z-index: 150 !important;
+}
+
+.NavIn {
+	width: 90%;
+	height: 100px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+
+.logo {
+	width: 50px;
+}
+
+.form-part {
+	height: 100px;
+	padding-top :20px
+}
+
+.NavSearch input[type="text"] {
+	width: 70%;
+	height :60px;
+	border-radius: 12px;
+	font-size: x-large;
+	padding-right: 12%;
+	padding-top: 0;
+	background-color: #1a1a1a00;
+	z-index: -1 !important;
+	border: 1.5px solid #ededed;
+}
+
+.NavSearch button {
+	margin-left: -10%;
+	color:#1a1a1a;
+	background-color: rgba(255, 222, 173, 0);
+	height: 55px;
+	margin: 2px;
+	margin-bottom: 10px;
+	width: 5%;
+	border-radius: 50%;
+	border: none;
+	z-index: 3 !important;
+	position: absolute;
+	color: gray;
+    transition: 0.4;
+}
+.NavSearch button:hover{
+	color: $behnid_dark !important;
+    transition: 0.4s;
+}
+
+.row .bottom-nav {
+	margin-right: 25%;
+	border-radius: 50px;
+	height: 100px;
+	margin-top: -55px;
+	width: 50%;
+	border: 1px solid #ededed;
+	background-color: #f7f7f7;
+	padding-top: 60px;
+	display: flex;
+	justify-content: space-evenly;
+	z-index: -1 !important ;
+    transition: 0.4s;
+    box-shadow: 0px 1px 5px #cecece;
+
+}
+
+.row .bottom-nav:hover {
+    margin-top: -45px;
+    transition: 0.4s;
+    background-color: #f9f9f9;
+	
+}
+
+.row .bottom-nav a:hover {
+    color : $behnid_orange ;
+    transition: 0.4s;
+    scale: 1.1;
+}
+.row .bottom-nav a{
+    transition: 0.4s;
+    scale: 1
+}
+
+.bothNav {
+	// margin-bottom: 100px;
+	top: 0;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}

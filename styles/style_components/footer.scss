@@ -1,0 +1,25 @@
+@import '../colors.scss';
+
+
+
+.full-footer {
+    border-top: 2px solid #ededed;
+    width: 100% !important;
+}
+
+
+.footer-item {
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+
+.footer-item .top-text-footer{
+    border-bottom: 3px solid $behnid_orange ;
+}
+
+.footer-a {
+    font-size: larger;  
+    line-height: 60px;
+}

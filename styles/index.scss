@@ -1,0 +1,46 @@
+@import url('https://v1.fontapi.ir/css/Vazir');
+@import 'style_components/NavBar.scss';
+@import 'style_components/link_and_texts.scss';
+@import 'style_components/reuseableComponents.scss';
+@import 'colors.scss';
+@import 'style_components/auth.scss';
+@import 'style_components/footer.scss';
+@import 'style_components/bottomNav.scss';
+
+body {
+	/* PWA enhancements */
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+
+    // my-styles
+    font-family: 'Vazir', sans-serif;
+    text-align: center;
+}
+
+.whole-app {
+    width: 100% !important;
+}
+
+.index-cat {
+    min-height: 300px;
+    background-color: #f7f7f7;
+}
+
+
+.behnid-container {
+    background-color: #ececec;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    width: 90vw;
+    min-height: 600px;
+}
+
+
+.card-item:hover {
+    box-shadow: -1px -2px 8px #92929273;
+}
+
+.slid {
+    direction: rtl !important;
+}

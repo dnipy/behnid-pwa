@@ -1,0 +1,13 @@
+@import '../colors.scss';
+
+.inner-login {
+    border: 2px #ced4da solid;
+    border-radius: 8px;
+    // height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+}
+#loginbtn {
+    background-color: $behnid_orange;
+}

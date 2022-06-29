@@ -1,0 +1,17 @@
+@import '../colors.scss';
+
+a {
+    color: #a9a9a9;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+p,h1,h2,h3,h4,h5,h6,b {
+    color: #707070;
+    text-align: center;
+}
+
+a:hover {
+    color: $behnid_orange !important;
+    transition: 0.4s;
+}
