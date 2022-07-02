@@ -3,7 +3,7 @@ export interface Imodal {
 }
 
 export interface IreqHead {
-    ContentType": string;
+    "ContentType": string;
     Accept: string;
     Authorization?: string;
 }
@@ -30,3 +30,13 @@ export interface IshopCard {
     author : string,
     desc : string
 }
+
+export interface cityOptionType {
+    title: string;
+    id: number;
+}
+export interface cityType {
+    title : string,
+    id : number
+}
+

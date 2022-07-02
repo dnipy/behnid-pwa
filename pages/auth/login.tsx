@@ -1,17 +1,18 @@
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../../lib/authContext';
 
 
 function login() {
   const [phone,setPhone] = useState<string>('')
   const [password,setPassword] = useState<string>('')
   const router = useRouter()
-  // const { setUser } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   useEffect(()=>{
     var userSession = localStorage.getItem('userSession')
-        if (userSession != null) {
-            router.replace('/dashbord')
+        if (user) {
+            router.replace('/dashbord')          
         }
   },[])
   const handleSignIn = async(e:React.MouseEvent)=>{
@@ -34,13 +35,17 @@ function login() {
     console.log(body);
     
     if (body) {
-      await fetch("http://behnid.com/api/applogin",{
+      await fetch("http://behnid.com/api/register",{
         method : "POST",
         headers : reqHeaders ,
         body : body
       }).then(res=>{
-          res.json().then(dta => 
-            dta !== undefined ? localStorage.setItem("userSession",dta.token) : localStorage.setItem("userSession",''))
+          res.json().then(
+            dta => {
+                console.log(dta)
+                dta !== undefined ? localStorage.setItem("userSession",dta.token) : localStorage.setItem("userSession",'')
+              }
+            )
             .then(()=>{
               console.log(localStorage.getItem('userSession'))
               console.log('userSet')

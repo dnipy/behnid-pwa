@@ -19,8 +19,16 @@ export function AuthProvider({ children }: Props) {
     const [user, setUser] = useState<boolean>(false);
     useEffect(()=>{
         var userSession = localStorage.getItem('userSession')
+        console.log(userSession)
         if (userSession != null) {
-            setUser(true)
+            if(userSession != undefined){
+                setUser(true)
+                console.log('ok set');
+                
+            }
+            else {
+                setUser(false)
+            }
         }
     },[user])
     

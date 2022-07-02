@@ -1,19 +1,30 @@
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
-import Sellers from '../../components/dashbord/seller'
-import Buyer from '../../components/dashbord/buyer'
+import React, { useContext, useEffect, useState } from 'react'
 import { IreqHead } from '../../types/reusable'
+import { AuthContext } from '../../lib/authContext'
+
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import HistoryIcon from '@mui/icons-material/History';
+import GradeIcon from '@mui/icons-material/Grade';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import { Avatar } from '@mui/material';
+import { AccountCircle, StorefrontOutlined } from '@mui/icons-material';
 
 function Dashbord() {
     const router = useRouter()
     const [superUser,setSuperUser] = useState(false)
+    const {user} = useContext(AuthContext)
 
 
     useEffect(()=>{
 
         var userSession = localStorage.getItem('userSession')
-        if (userSession == null) {
-            router.replace('/auth/login')
+        // if (userSession == null) {
+        //     router.replace('/auth/login')
+        // }
+        if (!user) {
+          router.replace('/auth/login')
         }
             
         const userPermision = localStorage.getItem('userPermision')
@@ -39,14 +50,150 @@ function Dashbord() {
       },[])
 
       return (
-        <div>
-          {
-            superUser ? <Sellers/> : <Buyer/>
-          }
+        <div className='dashbord-base'>
+          <div className="row mb-5 justify-content-center ">
+            <div className="col-6 align-center mb-3">
+              <Avatar     sx={{ width: 350, height: 350 }} alt="avatar" />
+            </div>
+            <a href="/dashbord">
+            <h2> <AccountCircle/> فروشگاه بهنید </h2>
+            </a>
+          </div>
+          <hr/>
+          <div className="row mt-5  justify-content-evenly">
+
+            <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/profile')}>
+                <div className="col-5  align-center">
+                  <ManageAccountsIcon sx={{ fontSize: 80,  }}/>
+                </div>
+                <div className="col-6 align-center">
+                  <h4>
+                    تنظیمات پروفایل
+                  </h4>
+                </div>
+            </div>
+            <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/charts')}>
+                <div className="col-5  align-center">
+                  <ShowChartIcon sx={{ fontSize: 80,  }}/>
+                </div>
+                <div className="col-6 align-center">
+                  <h4>
+                    نمودار ها
+                  </h4>
+                </div>
+            </div>
+
+
+
+
+            <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/history')}>
+                <div className="col-5  align-center">
+                  <HistoryIcon sx={{ fontSize: 80,  }}/>
+                </div>
+                <div className="col-6 align-center">
+                  <h4>
+                      سوابق
+                  </h4>
+                </div>
+            </div>
+            <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/interests')} >  
+                <div className="col-5  align-center"> 
+                  <GradeIcon sx={{ fontSize: 80,  }}/>
+                </div>
+                <div className="col-6 align-center">
+                  <h4>
+                    علاقمندی
+                  </h4>
+                </div>
+            </div>
+
+
+
+
+            <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/requests')}>
+                <div className="col-5  align-center">
+                  <HandshakeIcon sx={{ fontSize: 80,  }}/>
+                </div>
+                <div className="col-6 align-center">
+                  <h4>
+                    درخواست ها
+                  </h4>
+                </div>
+            </div>
+            {
+              superUser ? 
+
+                <Seller/>
+                        :
+                <BecomeSeller/>
+            }
+
+
+          </div>
         </div>
       )
 
 
+}
+
+
+
+const Seller = ()=>{
+  return (
+    <div className='row'>
+
+      <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row">
+          <div className="col-5  align-center">
+            <ManageAccountsIcon sx={{ fontSize: 80,  }}/>
+          </div>
+          <div className="col-6 align-center">
+            <h4>
+              تنظیمات پروفایل
+            </h4>
+          </div>
+      </div>
+
+      <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row">
+          <div className="col-5  align-center">
+            <ManageAccountsIcon sx={{ fontSize: 80,  }}/>
+          </div>
+          <div className="col-6 align-center">
+            <h4>
+              تنظیمات پروفایل
+            </h4>
+          </div>
+      </div>
+
+      <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row">
+          <div className="col-5  align-center">
+            <ManageAccountsIcon sx={{ fontSize: 80,  }}/>
+          </div>
+          <div className="col-6 align-center">
+            <h4>
+              تنظیمات پروفایل
+            </h4>
+          </div>
+      </div>
+</div>
+
+  )
+}
+
+
+
+const BecomeSeller = ()=>{
+  return(
+  <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row">
+    <div className="col-5  align-center">
+      <StorefrontOutlined sx={{ fontSize: 80,  }}/>
+    </div>
+    <div className="col-6 align-center">
+      <h4>
+        فروشندگی با بهنید
+      </h4>
+    </div>
+</div>
+  )
 }
 
 export default Dashbord

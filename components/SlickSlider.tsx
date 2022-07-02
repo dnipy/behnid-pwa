@@ -63,18 +63,20 @@ export const LastProductSlider = ()=>{
 
     return(
         <div className="col-12">
-        <div className='mb-4 title-index'>
-            <a href='/products'>آخرین محصولات</a>
-        </div>
-        <Slider    autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-            <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-        </Slider>
+            <div className=' title-index'>
+                <a href='/products'>آخرین محصولات</a>
+            </div>
+            <div className="slider-beh">
+                <Slider    autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                </Slider>
+            </div>
     </div>
     )
 

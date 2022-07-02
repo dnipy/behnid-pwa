@@ -37,7 +37,7 @@ function Navbar() {
                     </div>
                     <div className="col-4 center">
                         {
-                        user
+                        user 
                             ?
                             <IconsForNav/>
                             :

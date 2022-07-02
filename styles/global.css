@@ -38,6 +38,8 @@ body {
     transition: 0.4s;
     border: 1px solid #ededed;
     box-shadow: 0px 1px 5px #cecece;
+    z-index: 0;
+    margin-bottom: 30px;
 }
 
 
@@ -69,5 +71,6 @@ body {
 }
 
 .slider-beh {
-    background-color: #fff;
+    background-color: #fff !important;
+    z-index: 333;
 }

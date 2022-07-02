@@ -1,0 +1,40 @@
+@import '../colors.scss';
+
+
+.dashbord-base {
+    min-height: 70vh;
+}
+
+.dash-parts {
+    height: 15vh;
+    border: 1px solid #cecece ;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    transition: 0.4s;
+}
+
+
+.dash-parts:hover {
+    box-shadow: 3px 3px 5px #cecece;
+    transition: 0.4s;
+    background-color: #ededed;
+    cursor: pointer;
+    color : $behnid-orange !important
+}
+
+.dash-parts div {
+    height : 13vh
+}
+
+
+.align-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-req-div {
+    border-radius: 12px;
+    border: 1px solid gray;
+    min-height: 500px;
+}
