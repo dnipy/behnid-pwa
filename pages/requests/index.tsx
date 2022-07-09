@@ -8,18 +8,21 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import requests from  '../../assets/requests.svg';
 import { SellerCard } from '../../components/sellersCard';
+import apiGet from '../../funcs/ApiGet';
 
 
 const Shop = () => {
   const [loading,setLoading] = useState(true)
-  const [allProduct,setAllProdoct] = useState<ProductsType[]>([])
   const router = useRouter()
   useEffect(()=>{
     setTimeout(()=>{
-      setAllProdoct(Products)
       setLoading(false)
     },2500)
   },[])
+
+  const {data} = apiGet({url:'requests/bycity?city_id=0',})
+  console.log(data)
+  
   const dect_static = "کمی توضیحات درمورد محصول مورد نظر و قیمت و فروشنده آن"
   
   return (

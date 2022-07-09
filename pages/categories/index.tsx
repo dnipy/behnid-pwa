@@ -1,7 +1,12 @@
 import React from 'react'
+import apiGet from '../../funcs/ApiGet'
 
 function index() {
-  return (
+
+  const {apiData} = apiGet({ url : 'category/list' })
+  console.log(apiData)
+
+  return ( 
     <div>index</div>
   )
 }

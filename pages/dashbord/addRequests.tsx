@@ -48,7 +48,13 @@ function Dashbord() {
 
 
       const cities : cityType[]  = [
-        {title:'d',id : 1299}
+        {title:'اول',id : 1299},
+        {title:'دوم',id : 1299},
+        {title:'سوم',id : 1299},
+        {title:'جهارم',id : 1299},
+        {title:'پنجم',id : 1299},
+        {title:'ششم',id : 1299},
+
       ]
       const defaultProps = {
         options: cities,
@@ -58,7 +64,7 @@ function Dashbord() {
 
 
       return (
-        <div className='dashbord-base'>
+        <div className='dashbord-base mb-4 '>
           <div className="row mb-5 justify-content-center ">
             <div className="col-6 align-center mb-3">
               <Avatar     sx={{ width: 350, height: 350 }} alt="avatar" />
@@ -88,16 +94,47 @@ function Dashbord() {
                 variant="outlined"
                 fullWidth={true}
               />
-              <hr/>
+                <div className="mt-3"></div>
               <Autocomplete
                 {...defaultProps}
                 id="clear-on-blur"
                 clearOnBlur
                 renderInput={(params) => (
-                  <TextField {...params} label="clearOnBlur" variant="standard" />
+                  <TextField {...params} label="استان" variant="outlined" />
                 )}
               />
+                <div className="mt-3"></div>
+              <div className="col-11">
+                <div className="row justify-content-evenly">
+                  <div className="col-5">
+                    <TextField id="outlined-basic" label="کمترین قیمت" variant="outlined" fullWidth={true} dir="rtl" />
+                  </div>
+                  <div className="col-5">
+                    <TextField id="outlined-basic" label="بیشترین قیمت" variant="outlined" fullWidth={true} dir="rtl" />
+                  </div>
+                    <div className="mt-3"></div>
+                  <div className="col-5">
+                  <Autocomplete
+                    {...defaultProps}
+                    id="clear-on-blur"
+                    clearOnBlur
+                    renderInput={(params) => (
+                      <TextField {...params} label="دسته بندی" variant="outlined" />
+                    )}
+                  />
+
+                  </div>
+                  <div className="col-5">
+                    <TextField id="outlined-basic" label="تعداد" variant="outlined" type='number' fullWidth={true} dir="rtl" />
+                  </div>
                 </div>
+              </div>
+              
+              <div className="col-12 mt-3 mb-4">
+                <button className="btn btn-warning col-12" > ثبت درخواست </button>
+              </div>
+
+              </div>
               </div>
             </div>
 

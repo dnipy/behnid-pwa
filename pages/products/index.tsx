@@ -13,9 +13,30 @@ const Shop = () => {
   const [loading,setLoading] = useState(true)
   const [allProduct,setAllProdoct] = useState<ProductsType[]>([])
   const router = useRouter()
+  
   useEffect(()=>{
+
+    async function dataFetched () {
+      const token = window.localStorage.getItem('userSession')
+      const setedToken = `Bearer ${token}`
+      console.log(setedToken)
+      
+      await fetch('http://behnid.com/api/product/list?length=10&start=0',{
+        headers : {
+          "Authorization" : setedToken,
+          "Accept" : '*/*',
+          "Content-Type" : "application/json"
+        }
+      }).then(data=>data.json())
+        .then(dta=>setAllProdoct(dta))
+      .catch(e=>console.log(e))
+    }
+
+    dataFetched()
+
     setTimeout(()=>{
-      setAllProdoct(Products)
+      // setAllProdoct(Products)
+      console.log(allProduct)
       setLoading(false)
     },2500)
   },[])
@@ -45,10 +66,10 @@ const Shop = () => {
 
           <Grid justifyContent="center" alignItems="center" container gap='50px'>
 
-              {allProduct?.map((elm) : any=>(
+              {allProduct?.map((elm : any) : any=>(
                   <Grid item  >
                         <div onClick={()=> router.replace(`/products/${elm.id}`) }>
-                          <ShopCard  title={elm.product_title}  price_one={elm.price_one} price_two={elm.price_two} desc={dect_static}  author={elm.author}  />
+                          <ShopCard pic={elm.image.full_url}  title={elm.name}  price_one={elm.buy_price} price_two={elm.price_two} desc={dect_static}  author={elm.user.name}  />
                         </div>
                   </Grid>
 

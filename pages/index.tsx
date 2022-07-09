@@ -1,26 +1,25 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 import IndexCategories from '../components/IndexCategories'
 import SlickSlider, { LastOrderSlider, LastProductSlider } from '../components/SlickSlider'
-import Data from '../fackdata.json'
+// import Data from '../fackdata.json'
 import Intro from '../assets/intro.svg'
 import Target from '../assets/Target.svg'
 import { useRouter } from 'next/router'
+import apiGet from '../funcs/ApiGet'
+import GetToken from '../funcs/GetToken'
 
             
 const Home: NextPage = () => {
-  const [userSession,setUserSession]= useState<string | null>(null)
-  useEffect(() => {
-    const item = localStorage.getItem('userSession')
-    setUserSession(item)
-
-    const latestData = Data.slice(-6)
-    console.log(latestData);
-    
-  }, [])
-
   const router = useRouter()
+  
+  // const {data} = apiGet({url: 'product/list?length=6&start=0'})
+  const {apiData} = apiGet({url: 'getProvinces'})
+  console.log(apiData);
+
+
+  // const {profileData,token} = GetToken()ط  
+  // console.log([profileData,token])
   
   
   return (

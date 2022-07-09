@@ -28,7 +28,8 @@ export interface IshopCard {
     price_one : string,
     price_two : string,
     author : string,
-    desc : string
+    desc : string,
+    pic : string
 }
 
 export interface cityOptionType {
@@ -40,3 +41,17 @@ export interface cityType {
     id : number
 }
 
+
+export interface ResivedProps {
+    phone : string,
+    userName : string,
+    user_type_label : string
+}
+  
+export interface IauthContextProps  {
+    children: React.ReactNode;
+};
+
+export interface IapiGet {
+    url : string,
+}

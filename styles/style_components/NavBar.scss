@@ -32,37 +32,37 @@
 	padding-top :20px
 }
 
-.NavSearch input[type="text"] {
-	width: 70%;
-	height :60px;
-	border-radius: 12px;
-	font-size: x-large;
-	padding-right: 12%;
-	padding-top: 0;
-	background-color: #1a1a1a00;
-	z-index: -1 !important;
-	border: 1.5px solid #ededed;
-}
+// .NavSearch input[type="text"] {
+// 	width: 70%;
+// 	height :60px;
+// 	border-radius: 12px;
+// 	font-size: x-large;
+// 	padding-right: 12%;
+// 	padding-top: 0;
+// 	background-color: #1a1a1a00;
+// 	z-index: -1 !important;
+// 	border: 1.5px solid #ededed;
+// }
 
-.NavSearch button {
-	margin-left: -10%;
-	color:#1a1a1a;
-	background-color: rgba(255, 222, 173, 0);
-	height: 55px;
-	margin: 2px;
-	margin-bottom: 10px;
-	width: 5%;
-	border-radius: 50%;
-	border: none;
-	z-index: 3 !important;
-	position: absolute;
-	color: gray;
-    transition: 0.4;
-}
-.NavSearch button:hover{
-	color: $behnid_dark !important;
-    transition: 0.4s;
-}
+// .NavSearch button {
+// 	margin-left: -10%;
+// 	color:#1a1a1a;
+// 	background-color: rgba(255, 222, 173, 0);
+// 	height: 55px;
+// 	margin: 2px;
+// 	margin-bottom: 10px;
+// 	width: 5%;
+// 	border-radius: 50%;
+// 	border: none;
+// 	z-index: 3 !important;
+// 	position: absolute;
+// 	color: gray;
+//     transition: 0.4;
+// }
+// .NavSearch button:hover{
+// 	color: $behnid_dark !important;
+//     transition: 0.4s;
+// }
 
 .row .bottom-nav {
 	margin-right: 25%;
@@ -104,4 +104,8 @@
     position: fixed;
     z-index: 1000;
     width: 100%;
+}
+
+.css-viou3o-MuiAutocomplete-root {
+	width: inherit !important;
 }

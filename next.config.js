@@ -19,7 +19,7 @@ const nextConfig = withPWA({
   },
   reactStrictMode: true,
   images: {
-    domains: ['*'],
+    domains: ['behnid.com'],
   },
 })
 

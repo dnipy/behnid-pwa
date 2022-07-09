@@ -1,22 +1,20 @@
-import { IauthContext } from "../types/reusable";
-import { createContext , ReactNode, useEffect, useState} from "react";
+import { IauthContext, IauthContextProps, ResivedProps } from "../types/reusable";
+import { createContext , useEffect, useState} from "react";
 
 
 const authContextDefaultValues: IauthContext = {
     user: false,
     setUser : ()=>{}
 }
-
 export const AuthContext = createContext<IauthContext>(authContextDefaultValues);
 
 
-type Props = {
-    children: ReactNode;
-};
 
-export function AuthProvider({ children }: Props) {
+
+export function AuthProvider({ children }:IauthContextProps) {
     
     const [user, setUser] = useState<boolean>(false);
+    const [FullData,setFullData] = useState<ResivedProps>()
     useEffect(()=>{
         var userSession = localStorage.getItem('userSession')
         console.log(userSession)
@@ -25,11 +23,27 @@ export function AuthProvider({ children }: Props) {
                 setUser(true)
                 console.log('ok set');
                 
+                const reqHead = {
+                    "Content-Type" : "application/json",
+                    "Accept" : "*/*",
+                    "Authorization" : `Bearer ${userSession}`
+                }
+            
+                fetch('http://behnid.com/api/showProfile',{
+                    method: "GET",
+                    headers : reqHead,
+                }).then(res=>res.json()).then(data=>{
+                    console.log(data)
+                    setFullData({userName : data.username , phone : data.phone , user_type_label : data.user_type_label})
+                    console.log(FullData)}
+                )
             }
+            
             else {
                 setUser(false)
             }
         }
+
     },[user])
     
     

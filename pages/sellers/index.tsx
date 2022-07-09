@@ -2,8 +2,42 @@ import Image from 'next/image'
 import React from 'react'
 import Pay from '../../assets/Pay.svg'
 import { SellerCard } from '../../components/sellersCard'
+import { useEffect,useState } from 'react'
+import { ProductsType } from '../../types/productsTypes'
+import { useRouter } from 'next/router'
 
 function Sellers() {
+  const [loading,setLoading] = useState(true)
+  const [allProduct,setAllProdoct] = useState<ProductsType[]>([])
+  const router = useRouter()
+  
+
+  useEffect(()=>{
+
+    async function dataFetched () {
+      const token = window.localStorage.getItem('userSession')
+      const setedToken = `Bearer ${token}`
+      console.log(setedToken)
+      
+      await fetch('http://behnid.com/api/sellers/all?length=10&start=0',{
+        headers : {
+          "Authorization" : setedToken,
+          "Accept" : '*/*',
+          "Content-Type" : "application/json"
+        }
+      }).then(data=>data.json())
+        .then(dta=>setAllProdoct(dta))
+      .catch(e=>console.log(e))
+    }
+
+    dataFetched()
+
+    setTimeout(()=>{
+      // setAllProdoct(Products)
+      console.log(allProduct)
+      setLoading(false)
+    },2500)
+  },[])
   return (
     <div>
           <div className='row justify-content-evenly'>

@@ -30,11 +30,11 @@ body {
 
 
 .behnid-container {
-    background-color: #ececec;
+    background-color: #fffffff5;
     border: 1px solid #e9e9e9;
     border-radius: 5px;
-    width: 90vw;
-    min-height: 600px;
+    // width: 900px;
+    // min-height: 500px;
 }
 
 
@@ -45,3 +45,17 @@ body {
 .slid {
     direction: rtl !important;
 }
+
+.send-req-single {
+    height: 200px;
+    // border-radius: 8px;
+    // border: #fe6a00 2px dashed;
+    text-align: right;
+    margin-right: 30px;
+
+}
+.txt-r {
+    text-align: right !important;
+    margin-right: 30px;
+}
+

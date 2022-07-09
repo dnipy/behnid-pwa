@@ -50,7 +50,6 @@ function SlickSlider() {
 export default SlickSlider
 
 
-
 export const LastProductSlider = ()=>{
     var settings = {
         dots: true,
