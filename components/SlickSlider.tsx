@@ -67,13 +67,13 @@ export const LastProductSlider = ()=>{
             </div>
             <div className="slider-beh">
                 <Slider    autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
-                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا'  pic={null} />
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا'  pic={null}/>
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' pic={null}/>
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' pic={null}/>
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' pic={null}/>
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' pic={null}/>
+                    <ShopCard author='بهنید'  desc='توضیحات محصول'  price_one='۱۰۰۰۰' price_two='۲۵۲۵۱'  title='نام کالا' pic={null} />
                 </Slider>
             </div>
     </div>
@@ -109,6 +109,44 @@ export const LastOrderSlider = ()=>{
 
         </div>
     </div>
+    )
+
+}
+
+
+
+
+
+
+export const chatSlider = () =>{
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 3,
+        slidesToScroll: 1
+    }
+
+
+    return(
+        <div className="col-12">
+            <div className="slider-beh">
+                <Slider    autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
+                    <div>
+                        option one
+                    </div>
+                    <div>
+                        option one
+                    </div>
+                    <div>
+                        option one
+                    </div>
+                    <div>
+                        option one
+                    </div>
+                </Slider>
+            </div>
+        </div>
     )
 
 }

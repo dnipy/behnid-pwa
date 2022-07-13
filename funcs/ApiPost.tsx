@@ -6,7 +6,7 @@ interface IapiPOST {
     body : {}
 }
 
-export default function apiGet ( props : IapiPOST) {
+export default function apiPost ( props : IapiPOST) {
     const [data,setData] = useState()
     useEffect(()=>{
         var userSession = localStorage.getItem('userSession')

@@ -29,7 +29,7 @@ export interface IshopCard {
     price_two : string,
     author : string,
     desc : string,
-    pic : string
+    pic : string | null
 }
 
 export interface cityOptionType {

@@ -7,6 +7,8 @@
 @import 'style_components/footer.scss';
 @import 'style_components/bottomNav.scss';
 @import 'dashbord/dashbord.scss';
+@import 'style_components/chat.scss';
+
 
 body {
 	/* PWA enhancements */
@@ -20,8 +22,19 @@ body {
 }
 
 .whole-app {
-    width: 100% !important;
+    width: 100vw;
 }
+
+
+@media screen and (max-width : 580px) {
+    .whole-app {
+        width: 140vw;
+    }
+    .bottomNav {
+        right : -140px
+    }
+}
+
 
 .index-cat {
     min-height: 300px;

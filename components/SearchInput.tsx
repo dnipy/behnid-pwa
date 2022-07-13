@@ -63,7 +63,7 @@ export default function SearchInput() {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="جستوجو؟"
+          label="جستجو؟"
           InputProps={{
             ...params.InputProps,
             endAdornment: (

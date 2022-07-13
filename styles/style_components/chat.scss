@@ -1,0 +1,39 @@
+@import '../colors.scss';
+
+
+.top-chat {
+    height: 9vh;
+    background: #f7f7f7;
+    margin-bottom: 10px
+}
+
+.body-chat {
+height: 42vh;
+overflow: auto;
+}
+
+.upper-bottom-chat {
+ height: 5vh; 
+//  border: 1px solid gray;
+ margin-bottom: 2vh;
+}
+
+
+.bottom-chat {
+    height:9vh;
+    position: fixed;
+    bottom : 30px
+}
+
+
+.borderd-sug {
+    // height: 70px;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    padding: 2px ;
+    border-radius: 12px;
+    background-color: #f7f7f7 !important ;
+    display: flex;
+    align-items: center;
+    width: 200px !important;
+} 
