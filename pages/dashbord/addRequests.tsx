@@ -4,6 +4,7 @@ import { AuthContext } from '../../lib/authContext'
 import { Autocomplete, Avatar, TextField } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import {cityOptionType , cityType}  from '../../types/reusable'
+import ProvienceSearch from '../../components/provienceSearchAuto';
 
 
 
@@ -47,13 +48,16 @@ function Dashbord() {
 
 
 
-      const cities : cityType[]  = [
-        {title:'اول',id : 1299},
-        {title:'دوم',id : 1299},
-        {title:'سوم',id : 1299},
-        {title:'جهارم',id : 1299},
-        {title:'پنجم',id : 1299},
-        {title:'ششم',id : 1299},
+      const cities : cityType[]  = [ 
+        {title:'مواد غذایی',id : 1},
+        {title:'شستشو نظافت',id : 2},
+        {title:'آرایشی بهداشتی',id : 3},
+        {title:'خانه آشپزخانه',id : 4},
+        {title:'برق و روشنایی',id : 5},
+        {title:'لوازم تحریر',id :6},
+        {title:'سلامت محور',id : 7},
+        {title:'محصولات دیگر',id : 8},
+
 
       ]
       const defaultProps = {
@@ -95,14 +99,15 @@ function Dashbord() {
                 fullWidth={true}
               />
                 <div className="mt-3"></div>
-              <Autocomplete
+              {/* <Autocomplete
                 {...defaultProps}
                 id="clear-on-blur"
                 clearOnBlur
                 renderInput={(params) => (
                   <TextField {...params} label="استان" variant="outlined" />
                 )}
-              />
+              /> */}
+              <ProvienceSearch/>
                 <div className="mt-3"></div>
               <div className="col-11">
                 <div className="row justify-content-evenly">
@@ -122,6 +127,8 @@ function Dashbord() {
                       <TextField {...params} label="دسته بندی" variant="outlined" />
                     )}
                   />
+                    {/* <ProvienceSearch/> */}
+
 
                   </div>
                   <div className="col-5">

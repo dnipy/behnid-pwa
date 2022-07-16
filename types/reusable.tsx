@@ -10,7 +10,9 @@ export interface IreqHead {
 
 export interface IauthContext  {
     user: boolean ;
-    setUser : React.Dispatch<React.SetStateAction<boolean>>
+    setUser : React.Dispatch<React.SetStateAction<boolean>>,
+    userProvience : number,
+    setUserProvience : React.Dispatch<React.SetStateAction<number>>
 };
 
 

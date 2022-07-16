@@ -7,11 +7,13 @@ import Link from 'next/link'
 import { Grid } from '@mui/material'
 import { SubNav } from '../subNav'
 import SearchInput from './SearchInput'
+import { LocationCityOutlined } from '@mui/icons-material'
+import ProvienceModal from './provienceModal'
 
 
 
 function Navbar() {
-    const {user} = useContext(AuthContext)
+    const {user,userProvience} = useContext(AuthContext)
   return (
     <div className="bothNav">
         <div className="Navbar"  style={{zIndex:10,position:'relative'}}>
@@ -60,8 +62,8 @@ function Navbar() {
         <div className="row d-none d-sm-block" style={{zIndex:5,position:'relative'}}>
                     <div className='bottom-nav col-md-6 col-sm-8'>
                         
-                        <Link href='/sellers'>
-                           فروشندگان
+                        <Link href='#'>
+                           <ProvienceModal title="همه استان ها" />
                         </Link>
 
                         <Link href='/products'>

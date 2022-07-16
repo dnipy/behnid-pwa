@@ -4,7 +4,9 @@ import { createContext , useEffect, useState} from "react";
 
 const authContextDefaultValues: IauthContext = {
     user: false,
-    setUser : ()=>{}
+    setUser : ()=>{},
+    setUserProvience : ()=>{},
+    userProvience : 0,
 }
 export const AuthContext = createContext<IauthContext>(authContextDefaultValues);
 
@@ -15,6 +17,7 @@ export function AuthProvider({ children }:IauthContextProps) {
     
     const [user, setUser] = useState<boolean>(false);
     const [FullData,setFullData] = useState<ResivedProps>()
+    const [userProvience,setUserProvience] = useState<number>(0)
     useEffect(()=>{
         var userSession = localStorage.getItem('userSession')
         console.log(userSession)
@@ -44,6 +47,16 @@ export function AuthProvider({ children }:IauthContextProps) {
             }
         }
 
+
+
+
+
+
+        var userProvienceLS = localStorage.getItem('userProvience')
+        if (!userProvienceLS){
+            localStorage.setItem('userProvience',`${userProvience}`)
+        }
+
     },[user])
     
     
@@ -51,7 +64,9 @@ export function AuthProvider({ children }:IauthContextProps) {
 
     const value = {
         user,
-        setUser
+        setUser,
+        userProvience,
+        setUserProvience
     };
     return (
         <>

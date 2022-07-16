@@ -64,11 +64,11 @@ function Dashbord() {
           userType === "user"  ? setSuperUser(false) : setSuperUser(true)
         }).catch(e=>console.log(e))
       },[])
-      const user_name : string | null = FullData?.at(0)?.userName
+      // const user_name : string | null = FullData?.at(0)?.userName
 
       return (
         <div className='dashbord-base'>
-          <AvatarDashbord  userName={user_name} />
+          <AvatarDashbord  userName='usernamex ' />
           <div className="row   justify-content-evenly">
 
             <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/profile')}>

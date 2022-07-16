@@ -10,6 +10,7 @@
 @import 'style_components/chat.scss';
 
 
+
 body {
 	/* PWA enhancements */
 	-webkit-overflow-scrolling: touch;
@@ -72,3 +73,19 @@ body {
     margin-right: 30px;
 }
 
+
+
+.filterItem {
+    border-radius: 45px;
+    min-width: 100px;
+    border: 2px solid #ececec;
+    cursor: pointer;
+}
+
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+    background-color: white !important;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    box-shadow: none !important;
+}

@@ -7,6 +7,7 @@ import { Audio} from 'react-loader-spinner'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import products from  '../../assets/products.svg';
+import { ProductAccordion } from '../../components/accordion';
 
 
 const Shop = () => {
@@ -57,6 +58,9 @@ const Shop = () => {
           <hr/>
           <br/>
     </div>
+
+        <ProductAccordion/>
+
         <Grid justifyContent="center" minHeight='60vh' alignItems="center" container >
          <Grid item>
           {loading ? 
