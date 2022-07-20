@@ -1,6 +1,7 @@
 import { AccountCircle } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
 import { StaticImageData } from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import ladanOIL from '../../assets/ladanOIL.png'
@@ -18,6 +19,9 @@ const customStyles = {
 };
 
 function AvatarDashbord ( props : {userName : string | null} ) {
+
+    const router = useRouter()
+
     const [dialog,setDialog]= useState(false)
     let subtitle:any;
     function openModal() {
@@ -55,11 +59,11 @@ function AvatarDashbord ( props : {userName : string | null} ) {
             {/* <button onClick={closeModal}>close</button> */}
             <h2>تصویر پروفایل</h2>
 
-            <div className='btn btn-warning mt-5' >
+            <div  onClick={()=>router.replace("/dashbord/updateAvatar")} className='btn btn-warning mt-5' >
                 <h3 style={{color:'black'}}>حذف تصویر پروفایل</h3>
             </div>
                 <br />
-            <div  className='btn btn-warning mt-4' >
+            <div onClick={()=>router.replace("/dashbord/updateAvatar")} className='btn btn-warning mt-4' >
                 <h3 style={{color:'black'}}>آپدیت تصویر پروفایل</h3>
             </div>
 

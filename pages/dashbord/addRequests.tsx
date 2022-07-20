@@ -5,66 +5,48 @@ import { Autocomplete, Avatar, TextField } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import {cityOptionType , cityType}  from '../../types/reusable'
 import ProvienceSearch from '../../components/provienceSearchAuto';
+import { sendRenderResult } from 'next/dist/server/send-payload';
 
 
+interface IreqValues {
 
-function Dashbord() {
+}
+
+
+function addRequests() {
     const router = useRouter()
-    const [superUser,setSuperUser] = useState(false)
     const {user} = useContext(AuthContext)
-
-
-    useEffect(()=>{
-
-        var userSession = localStorage.getItem('userSession')
-        // if (userSession == null) {
-        //     router.replace('/auth/login')
-        // }
-        if (!user) {
-          router.replace('/auth/login')
-        }
-            
-        const userPermision = localStorage.getItem('userPermision')
-        if (userPermision === null){
-            setSuperUser(false)
-        }
-        userPermision === null ? setSuperUser(false) : 
-          userPermision  ? setSuperUser(true) : setSuperUser(false)
-
-          const reqHead = {
-            "Content-Type" : "application/json",
-            "Accept" : "*/*",
-            "Authorization" : `Bearer ${userSession}`
-          }
-        
-        fetch('http://behnid.com/api/showProfile',{
-          method: "GET",
-          headers : reqHead,
-        }).then(res=>res.json()).then(data=>{
-          var userType = data[0].user_type 
-          userType === "user"  ? setSuperUser(false) : setSuperUser(true)
-        }).catch(e=>console.log(e))
-      },[])
+    const [values,setValues] = useState({
+      name : '',
+      description : '',
+      price_to : '' ,
+      count : '0'
+    })
 
 
 
-      const cities : cityType[]  = [ 
-        {title:'مواد غذایی',id : 1},
-        {title:'شستشو نظافت',id : 2},
-        {title:'آرایشی بهداشتی',id : 3},
-        {title:'خانه آشپزخانه',id : 4},
-        {title:'برق و روشنایی',id : 5},
-        {title:'لوازم تحریر',id :6},
-        {title:'سلامت محور',id : 7},
-        {title:'محصولات دیگر',id : 8},
-
-
-      ]
       const defaultProps = {
         options: cities,
         getOptionLabel: (option: cityOptionType) => option.title,
       };
 
+      const reqHead = {
+        "Content-Type" : "application/json",
+        "Accept" : "*/*",
+        "Authorization" : `Bearer ${localStorage.getItem('userSession')}`
+      }
+
+
+
+      const sendRequest = ()=>{
+          fetch('https://behnid.com/api/requests/add',{
+            method : "POST",
+            headers : reqHead,
+            body : JSON.stringify(values)
+          }).then(res=>res.json())
+          .then(dta => console.log(dta))
+          .catch(e=>console.log(e))
+      }
 
 
       return (
@@ -87,7 +69,14 @@ function Dashbord() {
               <div className="row justify-content-center">
                 <div className="col-11">
                   <br/>
-                <TextField id="outlined-basic" label="نام درخواست" variant="outlined" fullWidth={true} dir="rtl" />
+                <TextField id="outlined-basic" label="نام درخواست" variant="outlined" fullWidth={true} dir="rtl"
+                  value={values.name} onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setValues({
+                    name : e.target.value,
+                    description : values.description,
+                    price_to : values.price_to,
+                    count : values.count
+                  })}
+                />
                 <br/>
                 <div className="mt-3"></div>
                 <TextField
@@ -97,6 +86,12 @@ function Dashbord() {
                 maxRows={4}
                 variant="outlined"
                 fullWidth={true}
+                value={values.description} onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setValues({
+                  name : values.name,
+                  description : e.target.value,
+                  price_to : values.price_to,
+                  count : values.count
+                })}
               />
                 <div className="mt-3"></div>
               {/* <Autocomplete
@@ -115,7 +110,16 @@ function Dashbord() {
                     <TextField id="outlined-basic" label="کمترین قیمت" variant="outlined" fullWidth={true} dir="rtl" />
                   </div>
                   <div className="col-5">
-                    <TextField id="outlined-basic" label="بیشترین قیمت" variant="outlined" fullWidth={true} dir="rtl" />
+                    <TextField id="outlined-basic" label="بیشترین قیمت" variant="outlined" fullWidth={true} dir="rtl"
+                    
+                    value={values.price_to} onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setValues({
+                      name : values.name,
+                      description : values.description,
+                      price_to : e.target.value,
+                      count : values.count
+                    })}
+
+                    />
                   </div>
                     <div className="mt-3"></div>
                   <div className="col-5">
@@ -132,13 +136,22 @@ function Dashbord() {
 
                   </div>
                   <div className="col-5">
-                    <TextField id="outlined-basic" label="تعداد" variant="outlined" type='number' fullWidth={true} dir="rtl" />
+                    <TextField id="outlined-basic" label="تعداد" variant="outlined" type='text' fullWidth={true} dir="rtl"
+                    
+                    value={values.count} onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setValues({
+                      name : values.name,
+                      description : values.description,
+                      price_to : values.price_to,
+                      count : e.target.value
+                    })}
+
+                    />
                   </div>
                 </div>
               </div>
               
               <div className="col-12 mt-3 mb-4">
-                <button className="btn btn-warning col-12" > ثبت درخواست </button>
+                <button  onClick={sendRequest} className="btn btn-warning col-12" > ثبت درخواست </button>
               </div>
 
               </div>
@@ -153,6 +166,16 @@ function Dashbord() {
 }
 
 
+const cities : cityType[]  = [ 
+  {title:'مواد غذایی',id : 1},
+  {title:'شستشو نظافت',id : 2},
+  {title:'آرایشی بهداشتی',id : 3},
+  {title:'خانه آشپزخانه',id : 4},
+  {title:'برق و روشنایی',id : 5},
+  {title:'لوازم تحریر',id :6},
+  {title:'سلامت محور',id : 7},
+  {title:'محصولات دیگر',id : 8},
+]
 
 
-export default Dashbord
+export default addRequests

@@ -10,11 +10,11 @@ export default class _Document extends Document {
     return (
       <Html dir='rtl'>
         <Head>  
-          <link
+          {/* <link
             rel="shortcut icon"
             href="alarm-clock.png"
             type="image/x-icon"
-          />
+          /> */}
           <link rel="manifest" href="/manifest.json" /> 
         </Head>
         <body>

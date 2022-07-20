@@ -1,17 +1,37 @@
 import React from 'react';
-import ImageUploading from 'react-images-uploading';
+import ImageUploading, { ImageListType} from 'react-images-uploading';
+
+
+
+
 
 
 
 export default function updateAvatar() {
-  const [images, setImages] = React.useState([]);
+  const [images, setImages] = React.useState<ImageListType>([]);
   const maxNumber = 1;
 
-  const onChange = (imageList:any, addUpdateIndex : any) => {
+  const onChange = (imageList:ImageListType , addUpdateIndex : any ) => {
 
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
+
+
+  const SendAvatar =async(e:React.MouseEvent)=>{
+
+      const reqHead = {
+        "Content-Type" : "application/json",
+        "Accept" : "*/*",
+        "Authorization" : `Bearer ${localStorage.getItem('userSession')}`
+      }
+
+      await fetch('http://behnid.com/api/uploadAvatar',{
+        method : "POST",
+        headers :reqHead,
+        body : JSON.stringify({avatar : images[0]?.file})
+      })
+  } 
 
   return (
 
@@ -41,7 +61,7 @@ export default function updateAvatar() {
             <div className="d-flex justify-content-center">
 
 
-                <div style={ images.length == 0 ?  {borderRadius : 12 ,border : '3px gray dashed', minHeight : '50vh' }  : undefined } className="col-md-8 col-sm-12 d-flex justify-content-center align-items-center " >
+                <div style={ images?.length == 0 ?  {borderRadius : 12 ,border : '3px gray dashed', minHeight : '50vh' }  : undefined } className="col-md-8 col-sm-12 d-flex justify-content-center align-items-center " >
                     {
                         images.length > 0 ? null  :
                     
@@ -62,7 +82,7 @@ export default function updateAvatar() {
                         <button className='btn btn-danger m-2' onClick={() => onImageRemove(index)}>حذف</button>
                         </div>
                         <div className='mt-3 mb-1' >
-                            <button className='btn btn-warning col-12'>ارسال</button>
+                            <button onClick={SendAvatar} className='btn btn-warning col-12'>ارسال</button>
                         </div>
                     </div>
                     ))}

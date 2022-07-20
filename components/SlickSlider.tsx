@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick'
 import Image from 'next/image'
 import sliderONE from '../assets/slider1.jpg'
@@ -90,7 +90,14 @@ export const LastOrderSlider = ()=>{
         slidesToShow: 2,
         slidesToScroll: 1
     }
+    const [reqData,setReqData] = useState()
 
+    useEffect(()=>{
+        fetch('http://behnid.com/api/requests/all?length=3&start=0').then(res => res.json()).then(dta=> {
+            setReqData(dta)  
+            console.log(dta)
+        }).catch(e=>console.log(e))
+    },[])
 
     return(
         <div className="col-12 slid" >
@@ -98,14 +105,18 @@ export const LastOrderSlider = ()=>{
             <a href='/requests'>آخرین درخواست ها</a>
         </div>
         <div className="slider-beh">
+            {reqData ? 
 
-            <Slider   autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
-                <OrderCard/>
-                <OrderCard/>
-                <OrderCard/>
-                <OrderCard/>
-                <OrderCard/>
-            </Slider>
+            // <Slider   autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
+            //     <OrderCard/>
+            //     <OrderCard/>
+            //     <OrderCard/>
+            //     <OrderCard/>
+            //     <OrderCard/>
+            // </Slider>
+            "dta"
+            :
+            "wait"}
 
         </div>
     </div>

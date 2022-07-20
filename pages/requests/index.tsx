@@ -20,8 +20,8 @@ const Shop = () => {
     },2500)
   },[])
 
-  const {data} = apiGet({url:'requests/bycity?city_id=0',})
-  console.log(data)
+  const {apiData} = apiGet({url:'requests/bycity?city_id=0',})
+  console.log(apiData)
   
   const dect_static = "کمی توضیحات درمورد محصول مورد نظر و قیمت و فروشنده آن"
   
