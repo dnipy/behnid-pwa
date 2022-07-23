@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from '@mui/material/Link';
 import React from 'react'
 import building from '../../assets/building.svg'
 
@@ -9,14 +10,14 @@ function index() {
       <div>
           <div className='row justify-content-evenly'>
             <div className="col-lg-6 col-md-12 ">
-              <Image src={building} />
+              <Image src={building} alt="build-alt" />
               <br/>
               <h1 className='pt-5'>درحال ساخت...!</h1>
             </div>
           </div>
           <br/>
 
-          <a href="/">بازگشت به خانه</a>
+          <Link href="/">بازگشت به خانه</Link>
       </div>
     </div>
   )

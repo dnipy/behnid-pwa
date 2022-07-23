@@ -2,16 +2,19 @@ import { Grid, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import {  Circles } from 'react-loader-spinner'
 import fackData from '../../fackdata.json'
-import ladan from '../../assets/ladanOIL.png'
+// import ladan from '../../assets/ladanOIL.png'
 import { IfackData } from '../../types/fakeDataType'
 import Avatar from '@mui/material/Avatar';
 import { SendSharp } from '@mui/icons-material'
-import {chatSlider} from '../../components/SlickSlider'
+// import {chatSlider} from '../../components/SlickSlider'
 import Slider from 'react-slick'
-import apiGet from '../../funcs/ApiGet'
+// import apiGet from '../../funcs/ApiGet'
+import type { NextPage } from 'next'
 
 
-function index() { 
+
+const Index :NextPage = ()=>  { 
+
   const [fData,setFdata] = useState<IfackData[]>()
   const [formData,setFormData] = useState('')
   useEffect(()=>{
@@ -45,7 +48,7 @@ function index() {
                         
                         {
                           fData.map((elm : IfackData)=>(
-                            <div className='col-12 mb-1 mt-1' style={{marginLeft:'auto' , marginRight : 'auto', height : '100px' , borderBottom : '1px solid #ededed'}}>
+                            <div key={elm.id} className='col-12 mb-1 mt-1' style={{marginLeft:'auto' , marginRight : 'auto', height : '100px' , borderBottom : '1px solid #ededed'}}>
                               <div className="row">
                                 <div className="col-4 d-flex justify-content-center align-item-center">
                                 < Avatar alt="someOne" src=''   sx={{height : 80 , width : 80}} />
@@ -168,4 +171,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

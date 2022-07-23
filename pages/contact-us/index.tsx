@@ -1,15 +1,16 @@
 import Image from 'next/image'
 import React from 'react'
 import contactUS from '../../assets/contactUS.svg'
+import type { NextPage } from 'next'
 
 
-function index() {
+const Index:NextPage = ()=> {
   return (
     <div>
       <div>
           <div className='row justify-content-evenly'>
             <div className="col-lg-6 col-md-12 ">
-              <Image src={contactUS} />
+              <Image alt="contactus" src={contactUS} />
               <br/>
               <h1 className='pt-5'>ارتباط با ما</h1>
             </div>
@@ -25,4 +26,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

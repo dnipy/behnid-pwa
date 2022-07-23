@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { AuthContext} from '../lib/authContext'
 import { useContext } from 'react'
 import BehModal from './BehModel'
-import Link from 'next/link'
+import Link from '@mui/material/Link';
 import { Grid } from '@mui/material'
-import { SubNav } from '../subNav'
-import SearchInput from './SearchInput'
+// import SearchInput from './SearchInput'
 import { LocationCityOutlined } from '@mui/icons-material'
 import ProvienceModal from './provienceModal'
-
+import ProvienceSearch from './provienceSearchAuto';
+import React from 'react'
 
 
 function Navbar() {
@@ -20,7 +20,7 @@ function Navbar() {
             <div className="NavIn">
                 <div className='row'>
                     <div className="col-3 center">
-                        <a href='/'><Image src={logo}  alt="sss" className='logo' width="250" height="220"/></a>
+                        <Link href='/'><Image src={logo}  alt="sss" className='logo' width="250" height="220"/></Link>
                     </div>
                     <div className="col-5  form-part">
                         <div className="d-none d-md-block">
@@ -34,7 +34,8 @@ function Navbar() {
                             
                                 </button>
                                 <input type='text' placeholder='جست و جو...؟'></input> */}
-                                <SearchInput/>
+                                {/* <SearchInput/> */}
+                                <ProvienceSearch/>
                             </div>
                             
                         </div>
@@ -45,12 +46,14 @@ function Navbar() {
                             ?
                             <IconsForNav/>
                             :
-                            <a  href='/auth/login'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                                </svg>
-                                <p>ورود</p> 
-                            </a>
+                            <Link  href='/auth/login'>
+                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    </svg>
+                                    <p>ورود</p> 
+                                
+                            </Link>
                         }
     
                     </div>
@@ -67,7 +70,9 @@ function Navbar() {
                         </Link>
 
                         <Link href='/products'>
+                            
                             محصولات
+                            
                         </Link>
                         <Link href='#'>
 
@@ -109,26 +114,26 @@ const IconsForNav= ()=>{
         <div className='col-8 d-xs-none'  style={{display:'flex' , alignItems:'center', justifyContent:'space-evenly'}}>
           
                 <div >
-                    <a href='/chat' >
+                    <Link href='/chat' >
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-chat-dots-fill" viewBox="0 0 16 16">
                             <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
                 <div>
-                    <a href="/products">
+                    <Link href="/products">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-cart-dash-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.5 7h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z"/>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
                 <div>
-                    <a href="/dashbord">
+                    <Link href="/dashbord">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                             <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
             </div>
     

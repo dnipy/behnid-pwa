@@ -5,10 +5,10 @@ import { Autocomplete, Avatar, TextField } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import {cityOptionType , cityType}  from '../../types/reusable'
 import RowRadioButtonsGroup from '../../components/gender';
+import type { NextPage } from 'next'
+import Link from '@mui/material/Link';
 
-
-
-function Dashbord() {
+const Dashbord : NextPage = ()=> {
     const router = useRouter()
     const [superUser,setSuperUser] = useState(false)
     const {user} = useContext(AuthContext)
@@ -70,9 +70,9 @@ function Dashbord() {
             <div className="col-6 align-center mb-3">
               <Avatar     sx={{ width: 350, height: 350 }} alt="avatar" />
             </div>
-            <a href="/dashbord">
+            <Link href="/dashbord">
             <h2> <AccountCircle/> فروشگاه بهنید </h2>
-            </a>
+            </Link>
           </div>
           <hr/>
           <div className="row mt-5  justify-content-evenly">

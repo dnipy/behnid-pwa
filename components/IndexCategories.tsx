@@ -14,27 +14,27 @@ function IndexCategories() {
     <div className='mt-5 index-cat ' >
         <div className="row">
             <div className="col-4">
-              <Image src={discount} />
+              <Image alt="SomeImgForCat"  src={discount} />
               <p>تخفیف</p>
             </div>
             <div className="col-4">
-              <Image src={guarantee} />
+              <Image alt="SomeImgForCat" src={guarantee} />
               <p>ضمانت</p>
             </div>
             <div className="col-4">
-              <Image src={handshake} />
+              <Image alt="SomeImgForCat" src={handshake} />
               <p>رضایت</p>
             </div>
             <div className="col-4">
-              <Image src={quality} />
+              <Image alt="SomeImgForCat" src={quality} />
               <p>کیفیت</p>
             </div>
             <div className="col-4">
-              <Image src={sell} />
+              <Image alt="SomeImgForCat" src={sell} />
               <p>فروش</p>
             </div>
             <div className="col-4">
-              <Image src={transit} />
+              <Image alt="SomeImgForCat" src={transit} />
               <p>حمل سریع</p>
             </div>
         </div>

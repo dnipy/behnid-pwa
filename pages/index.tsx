@@ -7,10 +7,9 @@ import Intro from '../assets/intro.svg'
 import Target from '../assets/Target.svg'
 import { useRouter } from 'next/router'
 import apiGet from '../funcs/ApiGet'
-import GetToken from '../funcs/GetToken'
 
             
-const Home: NextPage = () => {
+const Home: NextPage = ({}) => {
   const router = useRouter()
   
   // const {data} = apiGet({url: 'product/list?length=6&start=0'})
@@ -26,7 +25,7 @@ const Home: NextPage = () => {
     <div  >
         <div className='row justify-content-evenly'>
             <div className="col-lg-6 col-md-12 ">
-              <Image src={Intro} />
+              <Image alt="intero" src={Intro} />
             </div>
 
 
@@ -69,18 +68,20 @@ const Home: NextPage = () => {
 
             </div>
             <div className="col-lg-6 col-md-12">
-              <Image src={Target} />
+              <Image alt="target" src={Target} />
             </div>
         </div>
         <br/>
-        <IndexCategories/>
+        {/* <IndexCategories/> */}
         <br/>
-        <LastProductSlider/>
+        {/* <LastProductSlider/> */}
         <br/>
-        <LastOrderSlider/>
+        {/* <LastOrderSlider/> */}
     </div>
   )
 }
+
+
 
 
 export default Home

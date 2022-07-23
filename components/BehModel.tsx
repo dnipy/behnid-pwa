@@ -1,6 +1,9 @@
 import React, {   useState } from 'react';
 import Modal from 'react-modal';
 import { ReactChildBeh } from '../types/reusable';
+import Link from '@mui/material/Link';
+
+
 
 const customStyles = {
   content: {
@@ -34,7 +37,7 @@ function BehModal( {title  , children , name  } : ReactChildBeh ) {
 
   return (
     <div>
-      <a href='#' onClick={openModal}>{name}</a>
+      <Link href='#' onClick={openModal}>{name}</Link>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

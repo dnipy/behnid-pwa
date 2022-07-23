@@ -5,17 +5,14 @@ import { Autocomplete, Avatar, TextField } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import {cityOptionType , cityType}  from '../../types/reusable'
 import ProvienceSearch from '../../components/provienceSearchAuto';
-import { sendRenderResult } from 'next/dist/server/send-payload';
+import type { NextPage } from 'next'
+import Link from '@mui/material/Link';
 
 
-interface IreqValues {
 
-}
-
-
-function addRequests() {
-    const router = useRouter()
-    const {user} = useContext(AuthContext)
+const  AddRequests : NextPage  =()=> {
+    // const router = useRouter()
+    // const {user} = useContext(AuthContext)
     const [values,setValues] = useState({
       name : '',
       description : '',
@@ -55,9 +52,9 @@ function addRequests() {
             <div className="col-6 align-center mb-3">
               <Avatar     sx={{ width: 350, height: 350 }} alt="avatar" />
             </div>
-            <a href="/dashbord">
+            <Link href="/dashbord">
             <h2> <AccountCircle/> فروشگاه بهنید </h2>
-            </a>
+            </Link>
           </div>
           <hr/>
           <div className="row mt-5  justify-content-evenly">
@@ -178,4 +175,4 @@ const cities : cityType[]  = [
 ]
 
 
-export default addRequests
+export default AddRequests

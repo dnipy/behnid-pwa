@@ -5,8 +5,11 @@ import { SellerCard } from '../../components/sellersCard'
 import { useEffect,useState } from 'react'
 import { ProductsType } from '../../types/productsTypes'
 import { useRouter } from 'next/router'
+import type { NextPage } from 'next'
 
-function Sellers() {
+
+
+const Sellers:NextPage =()=> {
   const [loading,setLoading] = useState(true)
   const [allProduct,setAllProdoct] = useState<ProductsType[]>([])
   const router = useRouter()
@@ -42,7 +45,7 @@ function Sellers() {
     <div>
           <div className='row justify-content-evenly'>
             <div className="col-lg-6 col-md-12 ">
-              <Image src={Pay} />
+              <Image alt="payIMGs" src={Pay} />
               <br/>
               <h1 className='pt-5'>لیست فروشندگان بهنید</h1>
             </div>

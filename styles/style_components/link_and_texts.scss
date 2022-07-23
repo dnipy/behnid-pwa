@@ -1,6 +1,6 @@
 @import '../colors.scss';
 
-a {
+a , .MuiLink-root {
     color: #a9a9a9;
     transition: 0.4s;
     text-decoration: none;
@@ -11,7 +11,7 @@ p,h1,h2,h3,h4,h5,h6,b {
     text-align: center inherit;
 }
 
-a:hover {
+a:hover  , .MuiLink-root:hover{
     color: $behnid_orange !important;
     transition: 0.4s;
 }

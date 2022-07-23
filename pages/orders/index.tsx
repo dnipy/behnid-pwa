@@ -1,9 +1,10 @@
 import React from 'react'
+import type { NextPage } from 'next'
 
-function index() {
+const Index:NextPage =()=> {
   return (
     <div>index</div>
   )
 }
 
-export default index
+export default Index

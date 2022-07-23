@@ -1,6 +1,7 @@
 import React from 'react'
+import type { NextPage } from 'next'
 
-function BlogId() {
+const BlogId : NextPage  = ()=> {
   return (
     <div>BlogId</div>
   )

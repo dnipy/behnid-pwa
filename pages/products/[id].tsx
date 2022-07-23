@@ -9,9 +9,10 @@ import { Grid } from '@mui/material'
 import Image from 'next/image'
 import Ladan from '../../assets/ladanOIL.png'
 import apiGet from '../../funcs/ApiGet';
+import type { NextPage } from 'next'
  
 
-function ProductId() {
+const ProductId : NextPage  = ()=> {
   const router = useRouter()
   const {id} = router.query
   // const [fetchedData,setFetchedData] = useState<ProductsType>()
@@ -42,7 +43,7 @@ function ProductId() {
                   <Grid item  className='behnid-container' >
                       <div className="row justify-content-evenly ">
                           <div className="col-lg-5 " >
-                            <Image height='800px'  src={Ladan}   />
+                            <Image alt="imgForLadan" height='800px'  src={Ladan}   />
                           </div>
                           <div className="col-lg-6 align-item-center mt-5 " >
                             

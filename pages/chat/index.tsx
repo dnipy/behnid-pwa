@@ -5,9 +5,10 @@ import fackData from '../../fackdata.json'
 import ladan from '../../assets/ladanOIL.png'
 import { IfackData } from '../../types/fakeDataType'
 import Avatar from '@mui/material/Avatar';
+import type { NextPage } from 'next'
 
 
-function index() { 
+const Index:NextPage = ()=> { 
   const [fData,setFdata] = useState<IfackData[]>()
   useEffect(()=>{
     setTimeout(() => {
@@ -29,7 +30,7 @@ function index() {
                         
                         {
                           fData.map((elm : IfackData)=>(
-                            <div className='col-12 mb-1 mt-1' style={{marginLeft:'auto' , marginRight : 'auto', height : '100px' , borderBottom : '1px solid #ededed'}}>
+                            <div key={elm.id} className='col-12 mb-1 mt-1' style={{marginLeft:'auto' , marginRight : 'auto', height : '100px' , borderBottom : '1px solid #ededed'}}>
                               <div className="row">
                                 <div className="col-4 d-flex justify-content-center align-item-center">
                                 < Avatar alt="someOne" src=''   sx={{height : 80 , width : 80}} />
@@ -69,4 +70,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

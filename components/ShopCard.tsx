@@ -10,6 +10,7 @@ import { Grid } from '@mui/material';
 import { IshopCard } from '../types/reusable'; 
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import AddCardIcon from '@mui/icons-material/AddCard';
+import Link from '@mui/material/Link';
 
 
 export default function ShopCard({ title,price_one,price_two,author,desc,pic } : IshopCard) {
@@ -36,7 +37,7 @@ export default function ShopCard({ title,price_one,price_two,author,desc,pic } :
       <CardActions >
             <Grid container justifyContent="space-between" >
                 <p> {price_one}-{price_two}  <AddCardIcon/> </p>
-                <a href="/"> {author} <ShoppingBagIcon/> </a>
+                <Link href="/"> {author} <ShoppingBagIcon/> </Link>
             </Grid>
       </CardActions>
     </Card>

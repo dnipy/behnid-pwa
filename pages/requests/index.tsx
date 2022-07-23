@@ -9,9 +9,10 @@ import Image from 'next/image';
 import requests from  '../../assets/requests.svg';
 import { SellerCard } from '../../components/sellersCard';
 import apiGet from '../../funcs/ApiGet';
+import type { NextPage } from 'next'
 
 
-const Shop = () => {
+const Shop:NextPage = () => {
   const [loading,setLoading] = useState(true)
   const router = useRouter()
   useEffect(()=>{
@@ -31,7 +32,7 @@ const Shop = () => {
       <div>
           <div className='row justify-content-evenly'>
             <div className="col-lg-6 col-md-12 ">
-              <Image  src={requests} />
+              <Image alt="reqIMG"  src={requests} />
               <br/>
               <h1 className='pt-5'>لیست درخواست های موجود</h1>
             </div>

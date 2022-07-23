@@ -1,9 +1,12 @@
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../lib/authContext';
+import type { NextPage } from 'next'
+import Link from '@mui/material/Link';
 
 
-function login() {
+const Login : NextPage =  ()=> {
+
   const [phone,setPhone] = useState<string>('')
   const [password,setPassword] = useState<string>('')
   const router = useRouter()
@@ -107,10 +110,10 @@ function login() {
         </form>
         <div className="row mb-3">
           <div>
-            <a href="/auth/register">ساخت حساب</a>
+            <Link href="/auth/register">ساخت حساب</Link>
           </div>
           <div>
-            <a href="/auth/login/forgot-password">فراموشی رمز عبور؟</a>
+            <Link href="/auth/login/forgot-password">فراموشی رمز عبور؟</Link>
           </div>
         </div>
       </div>
@@ -118,4 +121,4 @@ function login() {
   )
 }
 
-export default login
+export default Login

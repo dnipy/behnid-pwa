@@ -7,6 +7,7 @@ import sliderThree from '../assets/slider3.jpg'
 import sliderFour from '../assets/slider4.jpg'
 import ShopCard from './ShopCard'
 import { OrderCard } from './orders'
+import Link from '@mui/material/Link';
 
 
 
@@ -28,17 +29,17 @@ function SlickSlider() {
             </div>
             <Slider    autoplaySpeed={1500} {...settings} arrows={true}  rtl={true} >
                 <div className='slider-img col-12'>
-                    <Image src={sliderONE}  height='200px !important' layout='intrinsic' />
+                    <Image alt="slider" src={sliderONE}  height='200px !important' layout='intrinsic' />
                 </div>
                 <div className='slider-img col-12'>
-                    <Image src={sliderTwo} height='200px !important' layout='intrinsic' />
+                    <Image alt="slider" src={sliderTwo} height='200px !important' layout='intrinsic' />
                 </div>
                 <div className='slider-img col-12'>
-                    <Image src={sliderFour} height='200px !important' layout='intrinsic' />
+                    <Image alt="slider" src={sliderFour} height='200px !important' layout='intrinsic' />
                     
                 </div>
                 <div className='slider-img col-12'>
-                    <Image src={sliderThree} height='200px !important' layout='intrinsic' />
+                    <Image alt="slider" src={sliderThree} height='200px !important' layout='intrinsic' />
                 </div>
 
             </Slider>
@@ -51,6 +52,7 @@ export default SlickSlider
 
 
 export const LastProductSlider = ()=>{
+
     var settings = {
         dots: true,
         infinite: true,
@@ -63,7 +65,7 @@ export const LastProductSlider = ()=>{
     return(
         <div className="col-12">
             <div className=' title-index'>
-                <a href='/products'>آخرین محصولات</a>
+                <Link href='/products'>آخرین محصولات</Link>
             </div>
             <div className="slider-beh">
                 <Slider    autoplaySpeed={1500} {...settings} arrows={true}  rtl={true}  >
@@ -102,7 +104,7 @@ export const LastOrderSlider = ()=>{
     return(
         <div className="col-12 slid" >
         <div className='mb-3 title-index'>
-            <a href='/requests'>آخرین درخواست ها</a>
+            <Link href='/requests'>آخرین درخواست ها</Link>
         </div>
         <div className="slider-beh">
             {reqData ? 

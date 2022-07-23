@@ -1,13 +1,9 @@
 import React from 'react';
 import ImageUploading, { ImageListType} from 'react-images-uploading';
+import type { NextPage } from 'next'
+import Image from 'next/image';
 
-
-
-
-
-
-
-export default function updateAvatar() {
+const UpdateAvatar : NextPage = ()=> {
   const [images, setImages] = React.useState<ImageListType>([]);
   const maxNumber = 1;
 
@@ -76,7 +72,7 @@ export default function updateAvatar() {
                     }
                     {imageList.map((image, index) => (
                     <div key={index} className="image-item mt-1">
-                        <img src={image['data_url']} alt="" width="400" />
+                        <Image src={image['data_url']} alt="" width="400" />
                         <div className="image-item__btn-wrapper mt-3">
                         <button className='btn m-2' onClick={() => onImageUpdate(index)}>انتخاب عکس دیگر</button>
                         <button className='btn btn-danger m-2' onClick={() => onImageRemove(index)}>حذف</button>
@@ -98,3 +94,5 @@ export default function updateAvatar() {
   );
 }
 
+
+export default UpdateAvatar

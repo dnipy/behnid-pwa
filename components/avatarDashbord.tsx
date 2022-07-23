@@ -1,6 +1,7 @@
 import { AccountCircle } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
 import { StaticImageData } from 'next/image';
+import Link from '@mui/material/Link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import Modal from 'react-modal';
@@ -42,9 +43,9 @@ function AvatarDashbord ( props : {userName : string | null} ) {
                     <Avatar    sx={{ width: 350, height: 350 }} alt="avatar" />
                 </div>
             </div>
-            <a href="/dashbord">
+            <Link href="/dashbord">
             <h2> <AccountCircle/> {props.userName} </h2>
-            </a>
+            </Link>
           </div>
           <hr/>
         </div>

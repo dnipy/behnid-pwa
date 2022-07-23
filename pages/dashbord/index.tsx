@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect, useState } from 'react'
-import { IreqHead } from '../../types/reusable'
+// import { IreqHead } from '../../types/reusable'
 import { AuthContext } from '../../lib/authContext'
+import type { NextPage } from 'next'
 
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
@@ -22,7 +23,7 @@ interface ResivedProps {
 
 
 
-function Dashbord() {
+const  Dashbord:NextPage  = ()=> {
 
     const router = useRouter()
     const [superUser,setSuperUser] = useState(false)

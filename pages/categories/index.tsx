@@ -1,7 +1,10 @@
 import React from 'react'
 import apiGet from '../../funcs/ApiGet'
+import type { NextPage } from 'next'
 
-function index() {
+
+
+const Index:NextPage = ()=> {
 
   const {apiData} = apiGet({ url : 'category/list' })
   console.log(apiData)
@@ -11,4 +14,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

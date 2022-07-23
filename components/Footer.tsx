@@ -1,4 +1,5 @@
 import { Grid } from '@mui/material'
+import Link from '@mui/material/Link';
 import React from 'react'
 
 function Footer() {
@@ -12,33 +13,40 @@ function Footer() {
                 </div>
                 <Grid  container direction="column"  >
                   <Grid item>
-                      <a href='/blog' className='footer-a'>
+                      <Link href='/blog' className='footer-a'>
+                        
                         مطلب بلاگ برای توسعه
-                      </a>
+                        
+                      </Link>
                   </Grid>
                   <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
+                          
                           تکست های فرعی جهت پر کردن کادر و متن
-                        </a>
+                          
+                        </Link>
                     </Grid>
                   <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
+                          
                           چگونه در جنگل های شمال کوسه شکار کنیم؟
-                        </a>
+                          
+                        </Link>
                     </Grid>
                     <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
+                          
                             ایا در ایران اژدها وجود دارد؟
-                        </a>
+                        </Link>
                     </Grid>
                     <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
                             قیمت گذاری اصولی بر روی اجناس
-                        </a>
+                        </Link>
                     </Grid>
 
                 </Grid>
@@ -53,27 +61,27 @@ function Footer() {
 
                 <Grid  container direction="column"  >
                   <Grid item>
-                      <a href='/blog' className='footer-a'>
+                      <Link href='/blog' className='footer-a'>
                         راهنمای تماس با ما
-                      </a>
+                      </Link>
                   </Grid>
                   <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
                           شروع همکاری و فروش انلاین
-                        </a>
+                        </Link>
                     </Grid>
                   <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
                           کسب اعتبار
-                        </a>
+                        </Link>
                     </Grid>
                     <br/>
                     <Grid item>
-                        <a href='/blog' className='footer-a'>
+                        <Link href='/blog' className='footer-a'>
                             سوالات متداول
-                        </a>
+                        </Link>
                     </Grid>
 
                   </Grid>

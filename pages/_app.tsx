@@ -20,7 +20,7 @@ import { AuthProvider } from '../lib/authContext'
 import BottomNav from '../components/BottomNav'
 import NextNProgress from 'nextjs-progressbar'
 import { Audio } from 'react-loader-spinner'
-import provienceSelecet from '../components/provienceSelecet'
+// import provienceSelecet from '../components/provienceSelecet'
 
 
 
@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Head>
 
         <AuthProvider>
-                <Navbar/>
+            <Navbar/>
 
             <ThemeProvider   theme={theme}>
                 <div className='main-page mb-5 '>

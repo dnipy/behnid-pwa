@@ -4,13 +4,13 @@ import blog from '../../assets/Blog.svg'
 import apiGet from '../../funcs/ApiGet'
 import BlogCards from '../../components/BlogCards'
 import { Grid } from '@mui/material'
+import type { NextPage } from 'next'
+
   
-function index() {
+const Index : NextPage =()=> {
     const {apiData} = apiGet({url : "blog/all?length=10&start=0"})
     console.log(apiData)
   
-
-
     // const {apiData} = apiGet({url : "product/single?product_id=1"})
     // console.log(apiData)
     return (
@@ -18,7 +18,7 @@ function index() {
         <div>
             <div className='row justify-content-evenly'>
               <div className="col-lg-6 col-md-12 ">
-                <Image  src={blog} />
+                <Image  src={blog} alt='blogImg' />
                 <br/>
                 <h1 className='pt-5'>وبلاگ</h1>
               </div>
@@ -71,4 +71,4 @@ function index() {
     )
 }
   
-export default index
+export default Index

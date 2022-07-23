@@ -18,6 +18,7 @@ export function AuthProvider({ children }:IauthContextProps) {
     const [user, setUser] = useState<boolean>(false);
     const [FullData,setFullData] = useState<ResivedProps>()
     const [userProvience,setUserProvience] = useState<number>(0)
+
     useEffect(()=>{
         var userSession = localStorage.getItem('userSession')
         console.log(userSession)
@@ -46,9 +47,6 @@ export function AuthProvider({ children }:IauthContextProps) {
                 setUser(false)
             }
         }
-
-
-
 
 
 

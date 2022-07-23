@@ -2,6 +2,7 @@ import { LocationCityOutlined } from '@mui/icons-material'
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import ProvienceSearch from './provienceSearchAuto';
+import Link from '@mui/material/Link';
 
 
 const customStyles = {
@@ -29,9 +30,9 @@ function ProvienceModal (props : {title : string}) {
 
   return (
     <div>
-        <a href='#' onClick={openModalP}>
+        <Link href='#' onClick={openModalP}>
            <LocationCityOutlined/> {props.title}
-        </a>
+        </Link>
         <Modal
             isOpen={provienceOpen}
             // onAfterOpen={afterOpenModalTwo}

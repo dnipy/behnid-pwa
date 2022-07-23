@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 import {ChatBubbleOutline,AccountCircleOutlined,CategoryOutlined,SearchOutlined} from '@mui/icons-material'
+import Link from '@mui/material/Link';
 
 function BottomNav() {
   return (
@@ -8,24 +9,24 @@ function BottomNav() {
         <div className='bottomNav'>
             <Grid dir="row" container justifyContent="space-evenly">
                 <Grid item>
-                    <a href='/dashbord'>
+                    <Link href='/dashbord'>
                         <AccountCircleOutlined/>
-                    </a>
+                    </Link>
                 </Grid>
                 <Grid item>
-                    <a href='/chat'>
+                    <Link href='/chat'>
                         <ChatBubbleOutline/>
-                    </a>
+                    </Link>
                 </Grid>
                 <Grid item>
-                    <a href='/categories'>
+                    <Link href='/categories'>
                         <CategoryOutlined/>
-                    </a>
+                    </Link>
                 </Grid>
                 <Grid item>
-                    <a href='#'>
+                    <Link href='#'>
                         <SearchOutlined/>
-                    </a>
+                    </Link>
                 </Grid>
             </Grid>
         </div>

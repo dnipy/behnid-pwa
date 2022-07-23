@@ -2,8 +2,11 @@ import { AccountCircle } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
 import React from 'react'
 import FullWidthTabs from '../../components/shopTabs'
+import type { NextPage } from 'next'
+import Link from '@mui/material/Link';
 
-function SellerId() {
+
+const SellerId:NextPage = ()=> {
   return (
     <div className='sellerIDpage'>
         <div className='mt-3'>
@@ -14,10 +17,10 @@ function SellerId() {
                       <Avatar     sx={{ width: 350, height: 350 }} alt="avatar" />
                   </div>
               </div>
-              <a href="/dashbord">
-              <h2> <AccountCircle/> فروشگاه بهنید </h2>
-              <h6>عضو از تاریخ ۱/۱/۱۴۰۰</h6>
-              </a>
+              <Link href="/dashbord">
+                <h2> <AccountCircle/> فروشگاه بهنید </h2>
+                <h6>عضو از تاریخ ۱/۱/۱۴۰۰</h6>
+              </Link>
 
             </div>
             <div style={{marginLeft:"auto" , marginRight:"auto"}}>

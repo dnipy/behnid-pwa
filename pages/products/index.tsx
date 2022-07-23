@@ -8,9 +8,10 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import products from  '../../assets/products.svg';
 import { ProductAccordion } from '../../components/accordion';
+import type { NextPage } from 'next'
 
 
-const Shop = () => {
+const Shop:NextPage = () => {
   const [loading,setLoading] = useState(true)
   const [allProduct,setAllProdoct] = useState<ProductsType[]>([])
   const router = useRouter()
@@ -49,7 +50,7 @@ const Shop = () => {
       <div>
           <div className='row justify-content-evenly'>
             <div className="col-lg-6 col-md-12 ">
-              <Image  src={products} />
+              <Image alt='productIMG' src={products} />
               <br/>
               <h1 className='pt-5'>محصولات </h1>
             </div>
@@ -71,7 +72,7 @@ const Shop = () => {
           <Grid justifyContent="center" alignItems="center" container gap='50px'>
 
               {allProduct?.map((elm : any) : any=>(
-                  <Grid item  >
+                  <Grid item  key={elm.id} >
                         <div onClick={()=> router.replace(`/products/${elm.id}`) }>
                           <ShopCard pic={elm.image.full_url}  title={elm.name}  price_one={elm.buy_price} price_two={elm.price_two} desc={dect_static}  author={elm.user.name}  />
                         </div>
