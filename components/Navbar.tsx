@@ -83,14 +83,14 @@ function Navbar() {
                                         <Grid item dir='column'  style={{borderLeft: '3px solid #ededed', paddingLeft:'55px' , height : '600px'}} >
                                                 <h5>دسته ها</h5>
                                                 <br/>
-                                                <h6><a href="#">مواد غذایی</a></h6>
-                                                <h6><a href="#">شستشو و نظافت</a></h6>
-                                                <h6><a href="#">آرایشی و بهداشتی</a></h6>
-                                                <h6><a href="#">خانه و آشپزخانه</a></h6>
-                                                <h6><a href='#'>ابزار برق و روشنایی</a></h6>
-                                                <h6><a href='#'>لوازم تحریر و اداری</a></h6>
-                                                <h6><a href='#'>سلامت محور</a></h6>
-                                                <h6><a href='#'>محصولات دیگر</a></h6>
+                                                <h6><Link href="#">مواد غذایی</Link></h6>
+                                                <h6><Link href="#">شستشو و نظافت</Link></h6>
+                                                <h6><Link href="#">آرایشی و بهداشتی</Link></h6>
+                                                <h6><Link href="#">خانه و آشپزخانه</Link></h6>
+                                                <h6><Link href='#'>ابزار برق و روشنایی</Link></h6>
+                                                <h6><Link href='#'>لوازم تحریر و اداری</Link></h6>
+                                                <h6><Link href='#'>سلامت محور</Link></h6>
+                                                <h6><Link href='#'>محصولات دیگر</Link></h6>
                                         </Grid>
 
                                         <Grid item dir='column'  >

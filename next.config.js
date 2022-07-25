@@ -20,7 +20,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   images: {
     domains: ['behnid.com'],
-  },
+  }
 })
 
 module.exports = nextConfig

@@ -14,7 +14,7 @@
     "@mantine/next": "^4.2.9",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.4",
-    "next": "12.1.6",
+    "next": "^12.2.3",
     "next-pwa": "^5.5.4",
     "nextjs-progressbar": "^0.0.14",
     "nprogress": "^0.2.0",

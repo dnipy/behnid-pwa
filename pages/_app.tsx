@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import theme from '../theme/theme'
 import { useEffect, useState } from 'react'
+import Dynamic from 'next/dynamic'
 
 // css-files
 import '../styles/bootstrap.css'
@@ -15,11 +16,12 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { Grid, ThemeProvider } from '@mui/material'
+import { Grid, NoSsr, ThemeProvider } from '@mui/material'
 import { AuthProvider } from '../lib/authContext'
 import BottomNav from '../components/BottomNav'
 import NextNProgress from 'nextjs-progressbar'
 import { Audio } from 'react-loader-spinner'
+// import { NoSsr} from '../components/_SafeSSR'
 // import provienceSelecet from '../components/provienceSelecet'
 
 
@@ -38,38 +40,42 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 
   return (
+    <NoSsr>
 
-    <div  className='whole-app'>
-        <NextNProgress height={5} color="#fe6a00" />
-        <Head>
-            <title>Behnid</title>
-        </Head>
 
-        <AuthProvider>
-            <Navbar/>
+        <div  className='whole-app'>
+            <NextNProgress height={5} color="#fe6a00" />
+            <Head>
+                <title>Behnid</title>
+            </Head>
 
-            <ThemeProvider   theme={theme}>
-                <div className='main-page mb-5 '>
+            <AuthProvider>
+                <Navbar/>
 
-                    {
-                        loading
-                            ?
-                            <Grid container justifyContent="center"  alignItems="center" minHeight="40vh">
-                                <Grid item>
-                                    <Audio color='#fe6a00' />
+                <ThemeProvider   theme={theme}>
+                    <div className='main-page mb-5 '>
+
+                        {
+                            loading
+                                ?
+                                <Grid container justifyContent="center"  alignItems="center" minHeight="40vh">
+                                    <Grid item>
+                                        <Audio color='#fe6a00' />
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                            :
-                        <Component {...pageProps} />
-                    }
+                                :
+                            <Component {...pageProps} />
+                        }
 
-                </div>
-            </ThemeProvider>
-            <Footer/>
-            <BottomNav/>
-        </AuthProvider>
-    </div>
+                    </div>
+                </ThemeProvider>
+                <Footer/>
+                <BottomNav/>
+            </AuthProvider>
+        </div>
 
+
+    </NoSsr>
     )
   
 }

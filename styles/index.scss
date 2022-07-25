@@ -29,7 +29,9 @@ body {
 
 @media screen and (max-width : 580px) {
     .whole-app {
-        width: 140vw;
+        // width: 140vw;
+        position: relative;
+        left: -15%;
     }
     .bottomNav {
         right : -140px

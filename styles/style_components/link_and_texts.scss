@@ -1,9 +1,9 @@
 @import '../colors.scss';
 
 a , .MuiLink-root {
-    color: #a9a9a9;
+    color: #a9a9a9 !important;
     transition: 0.4s;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 p,h1,h2,h3,h4,h5,h6,b {

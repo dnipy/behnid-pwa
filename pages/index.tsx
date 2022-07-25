@@ -13,7 +13,7 @@ const Home: NextPage = ({}) => {
   const router = useRouter()
   
   // const {data} = apiGet({url: 'product/list?length=6&start=0'})
-  const {apiData} = apiGet({url: 'getProvinces'})
+  const {apiData} = apiGet({url: 'requests/all?length=6&start=0'})
   console.log(apiData);
 
 
