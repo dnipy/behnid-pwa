@@ -48,14 +48,15 @@ const Dashbord : NextPage = ()=> {
 
 
 
-      const cities : cityType[]  = [
-        {title:'اول',id : 1299},
-        {title:'دوم',id : 1299},
-        {title:'سوم',id : 1299},
-        {title:'جهارم',id : 1299},
-        {title:'پنجم',id : 1299},
-        {title:'ششم',id : 1299},
-
+      const cities : cityType[]  = [ 
+        {title:'مواد غذایی',id : '1'},
+        {title:'شستشو نظافت',id : '2'},
+        {title:'آرایشی بهداشتی',id : '3'},
+        {title:'خانه آشپزخانه',id : '4'},
+        {title:'برق و روشنایی',id : '5'},
+        {title:'لوازم تحریر',id :'6'},
+        {title:'سلامت محور',id : '7'},
+        {title:'محصولات دیگر',id : '8'},
       ]
       const defaultProps = {
         options: cities,
