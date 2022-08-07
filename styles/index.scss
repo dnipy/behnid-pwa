@@ -23,7 +23,7 @@ body {
 }
 
 .whole-app {
-    width: 100vw;
+    width: 98vw;
 }
 
 
@@ -84,6 +84,14 @@ body {
     cursor: pointer;
 }
 
+.filterItemOn{
+    border-radius: 45px;
+    min-width: 100px;
+    border: 2px solid $behnid_orange;
+    color : $behnid_orange ;
+    cursor: pointer;
+}
+
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
     background-color: white !important;
@@ -91,3 +99,13 @@ body {
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
     box-shadow: none !important;
 }
+
+.boxedDiv {
+    background-color: #f7f7f7;
+    border: #efefef solid 2px;
+    color: black;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+

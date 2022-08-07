@@ -74,7 +74,7 @@ const Shop:NextPage = () => {
               {allProduct?.map((elm : any) : any=>(
                   <Grid item  key={elm.id} >
                         <div onClick={()=> router.replace(`/products/${elm.id}`) }>
-                          <ShopCard pic={elm.image.full_url}  title={elm.name}  price_one={elm.buy_price} price_two={elm.price_two} desc={dect_static}  author={elm.user.name}  />
+                          <ShopCard pic={null}  title={elm.name}  price_one={elm.buy_price} price_two={elm.price_two} desc={dect_static}  author={elm.user.name}  />
                         </div>
                   </Grid>
 

@@ -7,16 +7,15 @@ const authContextDefaultValues: IauthContext = {
     setUser : ()=>{},
     setUserProvience : ()=>{},
     userProvience : 0,
+    FullData : []
 }
 export const AuthContext = createContext<IauthContext>(authContextDefaultValues);
-
-
 
 
 export function AuthProvider({ children }:IauthContextProps) {
     
     const [user, setUser] = useState<boolean>(false);
-    const [FullData,setFullData] = useState<ResivedProps>()
+    const [FullData,setFullData] = useState<any>()
     const [userProvience,setUserProvience] = useState<number>(0)
 
     useEffect(()=>{
@@ -37,15 +36,17 @@ export function AuthProvider({ children }:IauthContextProps) {
                     method: "GET",
                     headers : reqHead,
                 }).then(res=>res.json()).then(data=>{
-                    console.log(data)
-                    setFullData({userName : data.username , phone : data.phone , user_type_label : data.user_type_label})
-                    console.log(FullData)}
+                    console.log(data[0])
+                    setFullData(data[0])
+                    localStorage.setItem('userPermision',data[0].user_type)
+                    }
                 )
             }
             
             else {
                 setUser(false)
             }
+
         }
 
 
@@ -54,6 +55,13 @@ export function AuthProvider({ children }:IauthContextProps) {
         if (!userProvienceLS){
             localStorage.setItem('userProvience',`${userProvience}`)
         }
+
+        var userPermision = localStorage.getItem('userPermision')
+        if(!userPermision){
+            localStorage.setItem('userPermision',FullData!.user_type)
+        }
+
+        
 
     },[user])
     
@@ -64,7 +72,8 @@ export function AuthProvider({ children }:IauthContextProps) {
         user,
         setUser,
         userProvience,
-        setUserProvience
+        setUserProvience,
+        FullData
     };
     return (
         <>

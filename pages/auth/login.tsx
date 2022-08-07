@@ -59,7 +59,7 @@ const Login : NextPage =  ()=> {
             alert('500')
           }
           if(res.status == 200){
-            alert('200')
+            router.replace('/')
           }
       }).catch(e=>{
         console.log(e);

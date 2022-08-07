@@ -36,7 +36,7 @@ function AvatarDashbord ( props : {userName : string | null} ) {
 
   return (
     <div>
-        <div className='dashbord-base mb-2 '>
+        <div className='dashbord-base '>
           <div className="row mb-5 justify-content-center ">
             <div className="col-6 align-center mb-3">
                 <div onClick={openModal}>
@@ -45,6 +45,10 @@ function AvatarDashbord ( props : {userName : string | null} ) {
             </div>
             <Link href="/dashbord">
             <h2> <AccountCircle/> {props.userName} </h2>
+            <button className='btn btn-danger-outlined' onClick={()=>{
+                localStorage.removeItem('userSession')
+                localStorage.removeItem('userPermision')
+            }}>خروج از حساب کاربری</button>
             </Link>
           </div>
           <hr/>

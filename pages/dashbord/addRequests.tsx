@@ -7,6 +7,7 @@ import {cityOptionType , cityType}  from '../../types/reusable'
 import ProvienceSearch from '../../components/provienceSearchAuto';
 import type { NextPage } from 'next'
 import Link from '@mui/material/Link';
+import PhotoUpload from '../../components/photo';
 
 
 
@@ -64,7 +65,7 @@ const  AddRequests : NextPage  =()=> {
               <br />
               <h3>افزودن درخواست</h3>
               <div className="row justify-content-center">
-                <div className="col-11">
+                <div className="col-12">
                   <br/>
                 <TextField id="outlined-basic" label="نام درخواست" variant="outlined" fullWidth={true} dir="rtl"
                   value={values.name} onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setValues({
@@ -91,23 +92,17 @@ const  AddRequests : NextPage  =()=> {
                 })}
               />
                 <div className="mt-3"></div>
-              {/* <Autocomplete
-                {...defaultProps}
-                id="clear-on-blur"
-                clearOnBlur
-                renderInput={(params) => (
-                  <TextField {...params} label="استان" variant="outlined" />
-                )}
-              /> */}
-              <ProvienceSearch/>
+
+                    <ProvienceSearch/>
+              
                 <div className="mt-3"></div>
-              <div className="col-11">
+              <div className="col-12">
                 <div className="row justify-content-evenly">
                   <div className="col-5">
                     <TextField id="outlined-basic" label="کمترین قیمت" variant="outlined" fullWidth={true} dir="rtl" />
                   </div>
                   <div className="col-5">
-                    <TextField id="outlined-basic" label="بیشترین قیمت" variant="outlined" fullWidth={true} dir="rtl"
+                    <TextField id="outlined-basic" label="مدت اعتبار" variant="outlined" fullWidth={true} dir="rtl"
                     
                     value={values.price_to} onChange={(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>setValues({
                       name : values.name,
@@ -143,6 +138,9 @@ const  AddRequests : NextPage  =()=> {
                     })}
 
                     />
+                  </div>
+                  <div className="mt-3">
+                    <PhotoUpload/>
                   </div>
                 </div>
               </div>

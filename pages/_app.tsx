@@ -31,10 +31,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     const [loading,setLoading] = useState(true)
 
 
+
     useEffect(()=>{
         setTimeout(()=>{
             setLoading(false)
         },2500)
+        
     },[])
 
 

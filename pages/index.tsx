@@ -42,8 +42,8 @@ const Home: NextPage = ({}) => {
                 یا لیست آخرین محصولات عمده کلیک کنید
               </h4>
               <div className="d-flex mt-5 justify-content-evenly ">
-              <button type="button" style={{backgroundColor : "#fe6a00 !important"}} className="btn btn-warning col-4"  onClick={()=>router.replace('/products')} >محصولات</button>
-              <button type="button" className="btn btn-outline-dark col-4" onClick={()=>router.replace('/orders')} > سفارشات</button>
+              <button type="button" style={{backgroundColor : "#fe6a00 !important"}} className="btn btn-warning col-4"  onClick={()=>router.replace('products?cat=0&order=0&loc=0')} >محصولات</button>
+              <button type="button" className="btn btn-outline-dark col-4" onClick={()=>router.replace('/requests')} > درخواست ها</button>
               </div>
 
             </div>
@@ -63,7 +63,7 @@ const Home: NextPage = ({}) => {
                   میخایم خیلی راحت تر از همیشه خریدار رو به فروشنده برسونیم!
               </h4>
               <div className=" mt-5 ">
-              <button type="button" style={{backgroundColor : "#fe6a00 !important"}} className="btn btn-warning col-10">بزن بریم</button>
+              <button type="button" style={{backgroundColor : "#fe6a00 !important"}}  onClick={()=>router.replace('/auth/login')}  className="btn btn-warning col-10">شروع کنیم!</button>
               </div>
 
             </div>

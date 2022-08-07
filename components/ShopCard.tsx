@@ -11,12 +11,13 @@ import { IshopCard } from '../types/reusable';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import Link from '@mui/material/Link';
+import NoImg from '../assets/NoImg.png'
 
 
 export default function ShopCard({ title,price_one,price_two,author,desc,pic } : IshopCard) {
   return (
     <Card sx={{ maxWidth: 350 , boxShadow : '1px 3px 5px #e7e7e7' , border : "1px solid #efefef" }} dir="rtl" className='card-item' style={{cursor : 'pointer'}}>
-        <Image src={typeof pic == "string" ? pic : Ladan} alt='img' width='200'  height='200' />
+        <Image src={typeof pic == "string" ? pic : NoImg} alt='img' width='200'  height='200' />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
 

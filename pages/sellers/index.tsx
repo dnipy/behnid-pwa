@@ -3,7 +3,6 @@ import React from 'react'
 import Pay from '../../assets/Pay.svg'
 import { SellerCard } from '../../components/sellersCard'
 import { useEffect,useState } from 'react'
-import { ProductsType } from '../../types/productsTypes'
 import { useRouter } from 'next/router'
 import type { NextPage } from 'next'
 
@@ -11,7 +10,7 @@ import type { NextPage } from 'next'
 
 const Sellers:NextPage =()=> {
   const [loading,setLoading] = useState(true)
-  const [allProduct,setAllProdoct] = useState<ProductsType[]>([])
+  const [allProduct,setAllProdoct] = useState<any[any]>([])
   const router = useRouter()
   
 
@@ -29,18 +28,21 @@ const Sellers:NextPage =()=> {
           "Content-Type" : "application/json"
         }
       }).then(data=>data.json())
-        .then(dta=>setAllProdoct(dta))
+        .then(dta=>{
+          setAllProdoct(dta)
+          setLoading(false)
+        })
       .catch(e=>console.log(e))
     }
 
     dataFetched()
 
     setTimeout(()=>{
-      // setAllProdoct(Products)
       console.log(allProduct)
-      setLoading(false)
     },2500)
   },[])
+
+
   return (
     <div>
           <div className='row justify-content-evenly'>
@@ -53,13 +55,11 @@ const Sellers:NextPage =()=> {
           <br/>
           <hr/>
           <div className="row justify-content-evenly">
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-
+              {allProduct?.data?.map((elm : any)=>(
+                <div key={elm.id} onClick={()=>router.replace(`/sellers/${elm.id}`)}>
+                  <SellerCard name={elm.name as string} username={elm.username} created_at={elm.created_at} />
+                </div>
+              ))}
           </div>
     </div>
   )

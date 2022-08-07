@@ -4,13 +4,11 @@ import { AuthContext} from '../lib/authContext'
 import { useContext } from 'react'
 import BehModal from './BehModel'
 import Link from '@mui/material/Link';
-import { Grid } from '@mui/material'
-// import SearchInput from './SearchInput'
-import { LocationCityOutlined } from '@mui/icons-material'
+import { Grid, IconButton, InputAdornment, TextField } from '@mui/material'
+import { LocationCityOutlined, SearchOutlined } from '@mui/icons-material'
 import ProvienceModal from './provienceModal'
 import ProvienceSearch from './provienceSearchAuto';
 import React from 'react'
-
 
 function Navbar() {
     const {user,userProvience} = useContext(AuthContext)
@@ -35,7 +33,21 @@ function Navbar() {
                                 </button>
                                 <input type='text' placeholder='جست و جو...؟'></input> */}
                                 {/* <SearchInput/> */}
-                                <ProvienceSearch/>
+                                {/* <ProvienceSearch/> */}
+                                <TextField
+                                    className='col-10'
+                                    dir='ltr'
+                                    label="جستجو...؟"
+                                    InputProps={{
+                                        endAdornment: (
+                                        <InputAdornment  position='end' >
+                                            <IconButton>
+                                                <SearchOutlined/>
+                                            </IconButton>
+                                        </InputAdornment>
+                                        )
+                                    }}
+                                />
                             </div>
                             
                         </div>
@@ -69,15 +81,22 @@ function Navbar() {
                            <ProvienceModal title="همه استان ها" />
                         </Link>
 
-                        <Link href='/products'>
+                        <Link href={`products?cat=0&order=0&loc=0`} >
                             
                             محصولات
                             
                         </Link>
                         <Link href='#'>
 
+
+
+                        <Link href={`/requests`} >
+                            
+                            درخواست ها
+                            
+                        </Link>
                                
-                               <BehModal title='دسته بندی' name ="دسته بندی" >
+                               {/* <BehModal title='دسته بندی' name ="دسته بندی" >
                                    <Grid container  direction='row' textAlign='center' width='380px' >
 
                                         <Grid item dir='column'  style={{borderLeft: '3px solid #ededed', paddingLeft:'55px' , height : '600px'}} >
@@ -99,7 +118,7 @@ function Navbar() {
                                         
 
                                    </Grid>
-                                </BehModal>
+                                </BehModal> */}
 
                         </Link>
                     </div>

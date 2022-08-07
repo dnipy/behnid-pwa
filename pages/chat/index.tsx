@@ -9,11 +9,34 @@ import type { NextPage } from 'next'
 
 
 const Index:NextPage = ()=> { 
-  const [fData,setFdata] = useState<IfackData[]>()
+  const [fData,setFdata] = useState(false)
+  const [apiData,setApiData] = useState<any[any]>([])
+
+
+
   useEffect(()=>{
     setTimeout(() => {
-      setFdata(fackData)
+      setFdata(true)
     }, 1000);
+
+        var userSession = localStorage.getItem('userSession')
+  
+        const reqHead = {
+            "Content-Type" : "application/json",
+            "Accept" : "*/*",
+            "Authorization" : `Bearer ${userSession}`
+        }
+        fetch(`http://behnid.com/api/chat/get/senders`,{
+            method :"GET",
+            headers : reqHead
+        }).then(
+            res => res.json()
+        ).then(dta => {
+          setApiData(dta)
+          console.log(dta)
+        })
+  
+
   },[])
   return (
     <div>
@@ -27,30 +50,35 @@ const Index:NextPage = ()=> {
                     <div className="col-lg-3 col-sm-10" style={{height:'70vh',border:"2px solid #ededed",overflow : "auto" , borderRadius : '12px',marginLeft:'auto' , marginRight : 'auto'}}>
 
                       <div className="col-12" >
-                        
-                        {
-                          fData.map((elm : IfackData)=>(
-                            <div key={elm.id} className='col-12 mb-1 mt-1' style={{marginLeft:'auto' , marginRight : 'auto', height : '100px' , borderBottom : '1px solid #ededed'}}>
+                        {apiData?.data?.length  == 0
+                               ?
+                            <div className='d-flex justify-content-center align-items-center' style={{height : '69vh'}}>
+                                <div>
+                                  <p>هنوز مخاطبی موجود نیست</p>
+                                  <button className='btn btn-warning'>ارسال پیام</button>
+                                </div>
+                            </div> 
+                            :
+                            <div  className='col-12 mb-1 mt-1' style={{marginLeft:'auto' , marginRight : 'auto', height : '100px' , borderBottom : '1px solid #ededed'}}>
                               <div className="row">
                                 <div className="col-4 d-flex justify-content-center align-item-center">
                                 < Avatar alt="someOne" src=''   sx={{height : 80 , width : 80}} />
                                 </div>
                                 <div className="col-7">
-                                  <h6 className="pt-3">{elm.author}</h6>
+                                  <h6 className="pt-3">user id</h6>
                                   <p>last seen</p>
                                 </div>
                               </div>
                             </div>
-                          ))
                         }
+                        
                         
                       </div>
                     </div> 
                     <div className="col-lg-7 d-none d-lg-block " style={{height:'70vh',border:"2px solid #ededed",overflow : "auto" , borderRadius : '12px',marginLeft:'auto' , marginRight : 'auto'}}>
                       <Grid container justifyContent="center"  alignItems="center" height="70vh" >
                         <Grid item>
-                            <p>ارسال پیام...؟</p>
-                            <button className="btn btn-warning">انتخاب مخاطب</button>
+                            <b>مخاطب خود را انتخاب کنید</b>
                         </Grid>
                       </Grid>
                     </div>

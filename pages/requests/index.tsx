@@ -10,7 +10,29 @@ import requests from  '../../assets/requests.svg';
 import { SellerCard } from '../../components/sellersCard';
 import apiGet from '../../funcs/ApiGet';
 import type { NextPage } from 'next'
+import { ReqCard } from '../../components/reqCard';
 
+
+
+interface IreqType  {
+  area_type?: string,
+  category_id?: string,
+  city_id?: string,
+  count: string,
+  count_type?: string,
+  created_at: string,
+  ct_ids?: null,
+  description: string,
+  id: Number,
+  name: string,
+  price_from: string,
+  price_to: string,
+  product_id?: null,
+  province_id?: string,
+  province_ids?: null,
+  updated_at?: string,
+  user_id: string,
+}
 
 const Shop:NextPage = () => {
   const [loading,setLoading] = useState(true)
@@ -21,59 +43,60 @@ const Shop:NextPage = () => {
     },2500)
   },[])
 
-  const {apiData} = apiGet({url:'requests/bycity?city_id=0',})
-  console.log(apiData)
+
+
+
+  const [apiData,setApiData] = useState<any[]>([])
+
+  useEffect(()=>{
+      var userSession = localStorage.getItem('userSession')
+
+      const reqHead = {
+          "Content-Type" : "application/json",
+          "Accept" : "*/*",
+          "Authorization" : `Bearer ${userSession}`
+      }
+      fetch(`http://behnid.com/api/requests/all?length=10&start=0`,{
+          method :"GET",
+          headers : reqHead
+      }).then(
+          res => res.json()
+      ).then(dta => {
+        setApiData(dta.data)
+        console.log(dta.data)
+      })
+  },[])
+
+
   
   const dect_static = "کمی توضیحات درمورد محصول مورد نظر و قیمت و فروشنده آن"
   
   return (
+    <div>
     <Grid container justifyContent="center" >
       <Grid  item maxWidth="lg"  >
-      <div>
-          <div className='row justify-content-evenly'>
-            <div className="col-lg-6 col-md-12 ">
-              <Image alt="reqIMG"  src={requests} />
-              <br/>
-              <h1 className='pt-5'>لیست درخواست های موجود</h1>
+        <div>
+            <div className='row justify-content-evenly'>
+              <div className="col-lg-6 col-md-12 ">
+                <Image alt="reqIMG"  src={requests} />
+                <br/>
+                <h1 className='pt-5'>لیست درخواست های موجود</h1>
+              </div>
             </div>
-          </div>
-          <br/>
-          <hr/>
-          <br/>
-    </div>
-        <Grid justifyContent="center" minHeight='60vh' alignItems="center" container >
-         <Grid item>
-          {loading ? 
-
-          <Audio color='#fe6a00' />
-            :
-
-          <Grid justifyContent="space-evenly" alignItems="center" container >
-
-              {/* {allProduct?.map((elm) : any=>(
-                  <Grid item  >
-                        <div onClick={()=> router.replace(`/products/${elm.id}`) }>
-                          <ShopCard  title={elm.product_title}  price_one={elm.price_one} price_two={elm.price_two} desc={dect_static}  author={elm.author}  />
-                        </div>
-                  </Grid>
-
-              ))} */}
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-              <SellerCard/>
-
-
-          </Grid >
-        }
-        </Grid> 
-        </Grid>
+            <br/>
+            <hr/>
+            <br/>
+        </div>
       </Grid>
     </Grid>
+    <div className='row justify-content-evenly'>
+        {apiData.map((elm:any)=>(
+          
+            <ReqCard count={elm.count}  name={elm.name} description={elm.description} key={elm.id} id={elm.id}  user_id={elm.user_id}  categorieID={elm?.category_id  } />
+          
+        ))}
+      </div>
+    </div>
   )
 }
 

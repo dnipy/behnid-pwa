@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import AddCardIcon from '@mui/icons-material/AddCard';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Audio} from 'react-loader-spinner'
-import { Grid, Link } from '@mui/material'
+import { Grid } from '@mui/material'
 import Image from 'next/image'
 import Ladan from '../../assets/ladanOIL.png'
 import type { NextPage } from 'next'
@@ -27,7 +27,7 @@ const RequestId : NextPage  = ()=> {
   }
 
   useEffect(()=>{
-      fetch(`http://behnid.com/api/product/single?product_id=${id}`,{
+      fetch(`http://behnid.com/api/requests/single?reqid=${id}`,{
             method :"GET",
             headers : reqHead
       }).then(res =>res.json())
@@ -60,7 +60,7 @@ const RequestId : NextPage  = ()=> {
                   <Grid item  className='behnid-container' >
                       <div className="row justify-content-evenly ">
                           <div className="col-lg-5 " >
-                            <Image alt="imgForLadan" height='512px' width="512px"  src={ apiData?.data?.image?.full_url ? apiData?.data?.image?.full_url  : Ladan}   />
+                            <Image alt="imgForLadan" height='800px'  src={Ladan}   />
                           </div>
                           <div className="col-lg-6 align-item-center mt-5 " >
                             
@@ -68,9 +68,9 @@ const RequestId : NextPage  = ()=> {
 
                               <h2 className=''>{apiData?.data?.name}</h2>
                               
-                                    <h6>  قیمت خرید  {apiData?.data?.buy_price} </h6>
+                                    <h6>  <AddCardIcon/>  {apiData?.data?.price_from}-{apiData?.data?.price_to} </h6>
 
-                                    <h4  onClick={()=> router.replace(`/sellers/${apiData?.data?.user_id}`)}> <ShoppingBagIcon/> {apiData?.data?.user?.full_name} </h4>
+                                    <h4  onClick={()=> router.replace(`/sellers/${apiData?.data?.user_id}`)}> <ShoppingBagIcon/> {apiData?.data?.user_id} </h4>
 
                               
                             </div>
@@ -78,13 +78,11 @@ const RequestId : NextPage  = ()=> {
                             <hr/>
                             <div className="mb-4 send-req-single col-12 mt-4">
 
-                              <h6>تاریخ ایجاد = {apiData?.data?.created_at}</h6>
+                              <h6>حداقل میزان خرید = { apiData?.data?.price_to }</h6>
                               <h6>{ CatFind(apiData?.data?.category_id) }</h6>
-                              <b>قیمت فروش = {apiData?.data?.sell_price}</b>
+                              <b>موجود = {apiData?.data?.count}</b>
                               <br></br>
-                              <Link href={`/chat/${apiData?.data?.user?.id}`} >
-                                <button className='btn btn-warning mt-4 col-10'>ادامه و ثبت سفارش</button>
-                              </Link>
+                              <button className='btn btn-warning mt-4 col-10'>ادامه و قبول کردن درخواست</button>
                             </div>
                           </div>
                       </div>

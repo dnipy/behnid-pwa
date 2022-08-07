@@ -1,9 +1,8 @@
 import React from 'react';
 import ImageUploading, { ImageListType} from 'react-images-uploading';
-import type { NextPage } from 'next'
 import Image from 'next/image';
 
-const PhotoUpload : NextPage = ()=> {
+const PhotoUpload : React.FC = ()=> {
   const [images, setImages] = React.useState<ImageListType>([]);
   const maxNumber = 1;
 
@@ -56,7 +55,7 @@ const PhotoUpload : NextPage = ()=> {
             <div className="d-flex justify-content-center">
 
 
-                <div style={ images?.length == 0 ?  {borderRadius : 12 ,border : '3px gray dashed', minHeight : '50vh' }  : undefined } className="col-md-8 col-sm-12 d-flex justify-content-center align-items-center " >
+                <div  className="col-md-8 col-sm-12 d-flex justify-content-center align-items-center " >
                     {
                         images.length > 0 ? null  :
                     

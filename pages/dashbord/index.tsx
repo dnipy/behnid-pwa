@@ -1,6 +1,5 @@
 import { Router, useRouter } from 'next/router'
 import React, { useContext, useEffect, useState } from 'react'
-// import { IreqHead } from '../../types/reusable'
 import { AuthContext } from '../../lib/authContext'
 import type { NextPage } from 'next'
 
@@ -9,11 +8,8 @@ import ShowChartIcon from '@mui/icons-material/ShowChart';
 import HistoryIcon from '@mui/icons-material/History';
 import GradeIcon from '@mui/icons-material/Grade';
 import HandshakeIcon from '@mui/icons-material/Handshake';
-import { Avatar } from '@mui/material';
 import { AccountCircle, StorefrontOutlined } from '@mui/icons-material';
 import AvatarDashbord from '../../components/avatarDashbord';
-
-import ladanOIL from '../../assets/ladanOIL.png'
 
 interface ResivedProps {
   phone : string,
@@ -28,7 +24,7 @@ const  Dashbord:NextPage  = ()=> {
     const router = useRouter()
     const [superUser,setSuperUser] = useState(false)
     const {user} = useContext(AuthContext)
-    const [FullData,setFullData] = useState<ResivedProps[] | unknown >()
+    const [FullData,setFullData] = useState<any>()
   
     useEffect(()=>{
 
@@ -57,8 +53,7 @@ const  Dashbord:NextPage  = ()=> {
           method: "GET",
           headers : reqHead,
         }).then(res=>res.json()).then(data=>{
-          console.log(data)
-          setFullData({userName : data.username , phone : data.phone , user_type_label : data.user_type_label})
+          setFullData(data)
           console.log(FullData);
           
           var userType = data[0].user_type 
@@ -69,7 +64,7 @@ const  Dashbord:NextPage  = ()=> {
 
       return (
         <div className='dashbord-base'>
-          <AvatarDashbord  userName='usernamex ' />
+          <AvatarDashbord  userName={FullData?.at(0)?.username} />
           <div className="row   justify-content-evenly">
 
             <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" onClick={()=>router.replace('/dashbord/profile')}>
@@ -132,7 +127,7 @@ const  Dashbord:NextPage  = ()=> {
             </div>
             {
               superUser ? 
-
+                
                 <Seller/>
                         :
                 <BecomeSeller/>
@@ -152,23 +147,18 @@ const Seller = ()=>{
   const router = useRouter()
 
   return (
-    <div className='row'>
-
       <div className=" col-lg-5 col-sm-12 dash-parts justify-content-evenly row" 
-      onClick={()=>router.replace('/dashbord/')}
+      onClick={()=>router.replace('/dashbord/addProduct')}
       >
           <div className="col-5  align-center">
             <ManageAccountsIcon sx={{ fontSize: 80,  }}/>
           </div>
           <div className="col-6 align-center">
             <h4>
-              افزودن محصول به فروشگاه
+              افزودن محصول 
             </h4>
           </div>
-      </div>
-
-</div>
-
+    </div>
   )
 }
 

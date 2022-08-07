@@ -1,98 +1,57 @@
-import React from 'react';
-import ImageUploading, { ImageListType} from 'react-images-uploading';
-import type { NextPage } from 'next'
-import Image from 'next/image';
+import React,{useState} from "react";
+import axios from 'axios'
 
-const UpdateAvatar : NextPage = ()=> {
-  const [images, setImages] = React.useState<ImageListType>([]);
-  const maxNumber = 1;
-
-  const onChange = (imageList:ImageListType , addUpdateIndex : any ) => {
-
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
-  };
+const ImgUp =()=> {
+  const [selectedFile,setSelectedFile]= useState<FileList | null >(null)
+  const [filename , setFileName]  = useState<string>('')
+  if (filename.length > 1) {
+    console.log(filename); 
+  }
 
 
-  const SendAvatar =async(e:React.MouseEvent)=>{
+    const sendRequest = ()=>{
 
-      const reqHead = {
-        "Content-Type" : "application/json",
-        "Accept" : "*/*",
-        "Authorization" : `Bearer ${localStorage.getItem('userSession')}`
-      }
+        const reqHead = {
+          "Content-Type" : "multipart/form-data",
+          "Accept" : "application/json",
+          "Authorization" : `Bearer ${localStorage.getItem('userSession')}`
+        }
 
-      await fetch('http://behnid.com/api/uploadAvatar',{
-        method : "POST",
-        headers :reqHead,
-        body : JSON.stringify({avatar : images[0]?.file})
-      })
-  } 
+
+        let formData = new FormData();
+        formData.append('image', selectedFile![0])
+
+        axios({
+          url : 'https://behnid.com/api/upluadtest/two',
+          method : "POST",
+          headers : reqHead,
+          data : formData  
+        }).then(res => res.data)
+        .then((dta:any) => {
+
+            console.log(dta)
+            setFileName(dta?.imagepath?.file_name)
+        })
+        .catch(e=>console.log(e))
+  }
+
 
   return (
-
-    <div className="App">
-      <ImageUploading
-        acceptType={['jpg','jpeg','png']}
-        value={images}
-        onChange={onChange}
-        maxNumber={maxNumber}
-        dataURLKey="data_url"
-        
-      >
-        {({
-          imageList,
-          onImageUpload,
-        //   onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          // write your building UI
-          <div className="upload__image-wrapper">
-
-            {/* &nbsp; */}
-            {/* <button onClick={onImageRemoveAll}>Remove all images</button> */}
-            <div className="d-flex justify-content-center">
-
-
-                <div style={ images?.length == 0 ?  {borderRadius : 12 ,border : '3px gray dashed', minHeight : '50vh' }  : undefined } className="col-md-8 col-sm-12 d-flex justify-content-center align-items-center " >
-                    {
-                        images.length > 0 ? null  :
-                    
-                        <button
-                        className='btn btn-warning mb-3'
-                        style={isDragging ? { color: 'red' } : undefined}
-                        onClick={onImageUpload}
-                        {...dragProps}
-                        >
-                        انتخاب تصویر
-                        </button>
-                    }
-                    {imageList.map((image, index) => (
-                    <div key={index} className="image-item mt-1">
-                        <Image src={image['data_url']} alt="" width="400" />
-                        <div className="image-item__btn-wrapper mt-3">
-                        <button className='btn m-2' onClick={() => onImageUpdate(index)}>انتخاب عکس دیگر</button>
-                        <button className='btn btn-danger m-2' onClick={() => onImageRemove(index)}>حذف</button>
-                        </div>
-                        <div className='mt-3 mb-1' >
-                            <button onClick={SendAvatar} className='btn btn-warning col-12'>ارسال</button>
-                        </div>
-                    </div>
-                    ))}
-                </div>
-            </div>
-            
-          </div>
-        )}
-      </ImageUploading>
-
+    <div className="">
+      
+      <label htmlFor="avatar" >Choose a profile picture:</label>
+    <br/>
+        <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg"
+        onChange={(e)=>{
+          setSelectedFile( (e.target as HTMLInputElement).files! )
+          console.log(selectedFile)
+        }}
+        />
+        <button onClick={sendRequest} >send</button>
+      
     </div>
-
   );
 }
-
-
-export default UpdateAvatar
+export default ImgUp

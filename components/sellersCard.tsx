@@ -2,7 +2,7 @@ import Image from "next/image"
 import logo from '../assets/logo.png'
 import { StarsOutlined , CategoryOutlined} from '@mui/icons-material'
 
-export const SellerCard = ()=>{
+export const SellerCard = (props : {name : string ,username : string ,created_at : string})=>{
     return (
         <div className="mt-3 mb-3 col-sm-12 col-lg-5">
             <div className="sellerCard" >
@@ -13,18 +13,17 @@ export const SellerCard = ()=>{
                     </div>
 
                     <div className="col-7 pt-3" >
-                        <h4>فروشگاه بهنید</h4>
-                        <h6>فروشگاه انلاین و رسمی بهنید</h6>
+                        <h4>{props.name}</h4>
+                        <h6>فروشگاه انلاین {props.username}</h6>
                         
-                        <p>مواد غذایی <CategoryOutlined className="pb-1 pt-1"/> </p>
-                        
-
+                        <p>عضو از تاریخ {props.created_at}</p>
+                       
                         <div className="row justify-content-evenly pt-2">
                             <div className="col-5">
                                 <p>4.7 <StarsOutlined className="pb-1"/> </p>
                             </div>
                             <div className="col-5">
-                                <p>تهران , تهران</p>
+                                فعال
                             </div>
                         </div>
 

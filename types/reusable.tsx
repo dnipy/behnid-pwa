@@ -13,6 +13,7 @@ export interface IauthContext  {
     setUser : React.Dispatch<React.SetStateAction<boolean>>,
     userProvience : number,
     setUserProvience : React.Dispatch<React.SetStateAction<number>>
+    FullData : any
 };
 
 
@@ -36,11 +37,11 @@ export interface IshopCard {
 
 export interface cityOptionType {
     title: string;
-    id: number;
+    id: string;
 }
 export interface cityType {
     title : string,
-    id : number
+    id : string
 }
 
 
